@@ -1,0 +1,17 @@
+{
+    "name": "frissr/volenteer",
+    "description": "Match Vluchtelingen in Nederland aan Vrijwillers in de Buurt.",
+    "minimum-stability": "stable",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Harry van der Valk",
+            "email": "harry@frissr.nl"
+        }
+    ],
+    "require": {
+        "symfony/yaml": "^3.0",
+        "symfony/console": "^3.0",
+        "fzaninotto/faker": "^1.5"
+    }
+}
