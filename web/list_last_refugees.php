@@ -31,7 +31,6 @@ for ($i = 0; $i < 5; $i++) {
     $refugees[] = new Refugee($faker->name);
 }
 
-
 /**
  * De View
  * @var Refugee $refugee

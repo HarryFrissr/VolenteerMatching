@@ -17,6 +17,7 @@ echo "Welkom op de Matching website voor Vluchtelingen en Vrijwilligers in Neder
 <div>
     <ul>
         <li><a href="list_last_refugees.php">Laaste 5 vluchtelingen</a></li>
+        <li><a href="getRandomRefugees.php">Geef willekeurige vluchtelingen</a></li>
     </ul>
 </div>
 
