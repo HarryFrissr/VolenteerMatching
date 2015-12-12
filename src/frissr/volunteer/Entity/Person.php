@@ -7,9 +7,36 @@
  * Time: 13:39
  */
 
+/**
+ * Class Person
+ * @package Frissr\Volenteer\Entity
+ */
 class Person {
 
     protected $name;
 
-    public
+    /**
+     * @param $name
+     */
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    /**
+     * @param mixed $name
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getName()
+    {
+        return $this->name;
+    }
+
+
 } 
