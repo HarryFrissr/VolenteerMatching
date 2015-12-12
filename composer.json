@@ -12,11 +12,15 @@
     "require": {
         "symfony/yaml": "^3.0",
         "symfony/console": "^3.0",
-        "fzaninotto/faker": "^1.5"
+        "fzaninotto/faker": "^1.5",
+        "phpunit/phpunit": "^5.1"
     },
     "autoload": {
         "psr-4": {
             "Frissr\\": "src/Frissr/"
         }
-    }
+    },
+    "autoload-dev": {
+        "psr-4": { "": "tests/" }    }
+
 }

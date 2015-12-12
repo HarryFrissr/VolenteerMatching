@@ -1,3 +1,11 @@
+-------
+PHPUnit
+-------
+
+Test de applicatie.
+
+- vendor\bin\phpunit tests
+
 -------------
 Foutmeldingen
 -------------
