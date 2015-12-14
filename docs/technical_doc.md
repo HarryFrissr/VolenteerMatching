@@ -1,3 +1,9 @@
+------
+Config
+------
+
+Place config files in app/config
+
 -------
 PHPUnit
 -------
