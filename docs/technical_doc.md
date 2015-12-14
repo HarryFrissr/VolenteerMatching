@@ -8,21 +8,21 @@ Place config files in app/config
 PHPUnit
 -------
 
-Test de applicatie.
+Test the application
 
 - vendor\bin\phpunit tests
 
 -------------
-Foutmeldingen
+Errors
 -------------
 
-Ik kijg de melding:
+I get the error:
 - Fatal error: Class 'Frissr\Volenteer\Service\FixedRefugeeService' not found in D:\web\Frissr\VolenteerMatching\web\getRandomRefugees.php on line 13
 
-Wordt de klasse ingeladen mbv de autoload
+When the class won't get loaded with autoload
 - require_once __DIR__ . './../vendor' . '/autoload.php';
 
-De nieuwe klasses staan nog niet in de Cpmposer autoload file.
+The new classes are not in the Composer autoload file
 - Run composer dumpautoload -o
 
 
