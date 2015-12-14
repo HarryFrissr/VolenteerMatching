@@ -27,4 +27,5 @@ Wordt de klasse ingeladen mbv de autoload
 De nieuwe klasses staan nog niet in de Cpmposer autoload file.
 - Run composer dumpautoload -o
 
+De autoload werkt nog niet naar behoren.
 
