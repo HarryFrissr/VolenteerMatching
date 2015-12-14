@@ -36,5 +36,5 @@
 # Composer PHAR
 /composer.phar
 
-/.idea/
+~VolunteerMatching/src/friss/Entity/.idea/
 data/
