@@ -16,6 +16,8 @@ Test de applicatie.
 Foutmeldingen
 -------------
 
+Volunter is hernoemd
+
 Ik kijg de melding:
 - Fatal error: Class 'Frissr\Volenteer\Service\FixedRefugeeService' not found in D:\web\Frissr\VolenteerMatching\web\getRandomRefugees.php on line 13
 
@@ -24,5 +26,9 @@ Wordt de klasse ingeladen mbv de autoload
 
 De nieuwe klasses staan nog niet in de Cpmposer autoload file.
 - Run composer dumpautoload -o
+
+- Start webserver met de volgende command:
+    php -S localhost:8080
+
 
 
