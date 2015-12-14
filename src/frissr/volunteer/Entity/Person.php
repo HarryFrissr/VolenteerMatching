@@ -1,4 +1,4 @@
-<?php namespace Frissr\Volenteer\Entity;
+<?php namespace Frissr\Volunteer\Entity;
 
 /**
  * Created by PhpStorm.
@@ -9,7 +9,7 @@
 
 /**
  * Class Person
- * @package Frissr\Volenteer\Entity
+ * @package Frissr\Volunteer\Entity
  */
 class Person {
 
@@ -39,4 +39,4 @@ class Person {
     }
 
 
-} 
+}

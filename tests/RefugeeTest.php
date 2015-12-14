@@ -6,7 +6,7 @@
  * Time: 10:25
  */
 
-use Frissr\Volenteer\Entity\Refugee;
+use Frissr\Volunteer\Entity\Refugee;
 
 class RefugeeTest extends PHPUnit_Framework_TestCase {
 
@@ -21,4 +21,3 @@ class RefugeeTest extends PHPUnit_Framework_TestCase {
         $this->assertNull($refugee->getName());
     }
 }
- 

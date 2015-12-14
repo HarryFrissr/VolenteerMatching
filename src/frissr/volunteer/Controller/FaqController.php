@@ -6,7 +6,7 @@
  * Time: 11:37
  */
 
-namespace Frissr\Volenteer\Controller;
+namespace Frissr\Volunteer\Controller;
 
 class FaqController {
     public function indexAction() {

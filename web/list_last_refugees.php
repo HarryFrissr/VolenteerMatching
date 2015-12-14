@@ -15,7 +15,7 @@ require_once __DIR__ . '/../vendor' . '/autoload.php';
  * Time: 14:24
  */
 
-use Frissr\Volenteer\Entity\Refugee;
+use Frissr\Volunteer\Entity\Refugee;
 use Faker\Factory;
 
 $faker = Faker\Factory::create();
