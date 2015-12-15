@@ -9,5 +9,6 @@
 require_once __DIR__ . './../vendor' . '/autoload.php';
 
 use Frissr\Volenteer\Controller\ContactController;
+
 $controller = new ContactController();
 echo $controller->indexAction();

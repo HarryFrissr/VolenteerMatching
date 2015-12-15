@@ -33,15 +33,25 @@ class RegisterController {
         // TODO Breng de gebruiker op de hoogte van zijn inschrijving
         // TODO Mail de beheerder dat er een inschrijving is
         // TODO Zet de inschrijving in de database
+        $this->sendEmailToPerson($name, $email, $accept);
 
-        // TODO Zet tijdelijk weg in een tekst bestand
+
+        include(__DIR__ . '/../../../../app/views/person/registerThankYou.html.php');
+    }
+
+    /**
+     * @param $name
+     * @param $email
+     * @param $accept
+     */
+    private function sendEmailToPerson($name, $email, $accept)
+    {
+// TODO Zet tijdelijk weg in een tekst bestand
         // TODO Zet deze in een aparte klasse
         // TODO Haal het path op via een eenvoudige manier, zonder al die ./../../
         $handle = fopen(__DIR__ . '/../../../../data/register.txt', "a");
         $date = new DateTime('now');
         fwrite($handle, "{$date->getTimestamp()};{$name};{$email};{$accept}" . PHP_EOL);
         fclose($handle);
-
-        include(__DIR__ . '/../../../../app/views/person/registerThankYou.html.php');
     }
 } 
