@@ -8,7 +8,7 @@
 
 require_once __DIR__ . './../vendor' . '/autoload.php';
 
-use Frissr\Volenteer\Controller\FaqController;
+use Frissr\Volunteer\Controller\FaqController;
 
 $controller = new FaqController();
 

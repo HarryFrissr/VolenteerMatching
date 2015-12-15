@@ -6,8 +6,8 @@
  * Time: 13:44
  */
 
-namespace Frissr\Volenteer\Entity;
+namespace Frissr\Volunteer\Entity;
 
-class Volenteer extends Person {
+class Volunteer extends Person {
 
-} 
+}

@@ -6,9 +6,9 @@
  * Time: 17:47
  */
 
-namespace Frissr\Volenteer\Entity;
+namespace Frissr\Volunteer\Entity;
 
 
 class Foo {
 
-} 
+}

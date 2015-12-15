@@ -8,8 +8,8 @@
 
 require_once __DIR__ . './../vendor' . '/autoload.php';
 
-use Frissr\Volenteer\Service\FixedRefugeeService;
-use Frissr\Volenteer\Entity\Refugee;
+use Frissr\Volunteer\Service\FixedRefugeeService;
+use Frissr\Volunteer\Entity\Refugee;
 
 $count = 8;
 // TODO Maak hier een service van

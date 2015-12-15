@@ -6,9 +6,9 @@
  * Time: 11:46
  */
 
-namespace Frissr\Volenteer\Controller;
+namespace Frissr\Volunteer\Controller;
 
-use Frissr\Volenteer\Entity\Person;
+use Frissr\Volunteer\Entity\Person;
 use DateTime;
 
 class RegisterController {
@@ -54,4 +54,4 @@ class RegisterController {
         fwrite($handle, "{$date->getTimestamp()};{$name};{$email};{$accept}" . PHP_EOL);
         fclose($handle);
     }
-} 
+}

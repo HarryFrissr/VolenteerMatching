@@ -6,7 +6,7 @@
  * Time: 11:13
  */
 
-use Frissr\Volenteer\Service\FixedRefugeeService;
+use Frissr\Volunteer\Service\FixedRefugeeService;
 
 class FixedRefugeeServiceTest extends PHPUnit_Framework_TestCase {
 
@@ -17,4 +17,3 @@ class FixedRefugeeServiceTest extends PHPUnit_Framework_TestCase {
         $this->getCount(10, $service->getRefugees(10));
     }
 }
- 
