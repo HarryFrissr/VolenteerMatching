@@ -25,6 +25,10 @@ Wordt de klasse ingeladen mbv de autoload
 De nieuwe klasses staan nog niet in de Cpmposer autoload file.
 - Run composer dumpautoload -o
 
+---------------
+Start webserver
+---------------
+
 - Start webserver met de volgende command:
     php -S localhost:8080
 

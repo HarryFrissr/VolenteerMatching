@@ -1,0 +1,15 @@
+--------------
+Specifications
+--------------
+
+Default language: English
+
+------------------------------
+Translation of the application
+------------------------------
+
+All texts are stored in the class of html file. This is not a nice solution if you look at maintenance. You can
+translate a sentence. The customer want to have a different translation. What are you going to do when we are
+translation the application to Dutch?
+
+Assigment: Find a way to translate the application.
