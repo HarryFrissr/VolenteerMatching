@@ -1,4 +1,4 @@
-<?php namespace Frissr\Volenteer\Service;
+<?php namespace Frissr\Volunteer\Service;
 /**
  * Created by PhpStorm.
  * User: Harry van der Valk - The Hague Intelliguence Group
@@ -6,7 +6,7 @@
  * Time: 9:27
  */
 
-use Frissr\Volenteer\Entity\Refugee;
+use Frissr\Volunteer\Entity\Refugee;
 
 use Faker\Factory;
 
@@ -32,4 +32,4 @@ class FixedRefugeeService {
         }
         return $refugees;
     }
-} 
+}

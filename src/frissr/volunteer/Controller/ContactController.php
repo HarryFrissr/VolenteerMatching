@@ -6,7 +6,7 @@
  * Time: 11:24
  */
 
-namespace Frissr\Volenteer\Controller;
+namespace Frissr\Volunteer\Controller;
 
 class ContactController {
 
@@ -14,4 +14,4 @@ class ContactController {
         // TODO Maak het path naar de Views eenvoudig beschikbaar
         return file_get_contents(__DIR__ . '/../../../../app/views/pages/contact.html');
     }
-} 
+}

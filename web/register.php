@@ -6,10 +6,10 @@
  * Time: 7:33
  */
 
-// TODO Weer die autoload, vind een oplossing om deze alleen in bijvoorbeeld de index.php aan te roepen
+//Weer die autoload, vind een oplossing om deze alleen in bijvoorbeeld de index.php aan te roepen
 require_once __DIR__ . './../vendor' . '/autoload.php';
 
-use Frissr\Volenteer\Controller\RegisterController;
+use Frissr\Volunteer\Controller\RegisterController;
 
 $name = $_POST['person_name'];
 $email = $_POST['person_email'];

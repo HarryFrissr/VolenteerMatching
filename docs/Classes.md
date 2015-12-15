@@ -1,6 +1,6 @@
 Klasses binnen de applicatie:
 - Person
-  - Volenteer
+  - Volunteer
   - Refugee
 - Category
 - Interest

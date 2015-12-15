@@ -6,9 +6,9 @@
  * Time: 13:45
  */
 
-namespace Frissr\Volenteer\Entity;
+namespace Frissr\Volunteer\Entity;
 
 
 class Interest {
 
-} 
+}
