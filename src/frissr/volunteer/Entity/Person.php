@@ -14,6 +14,7 @@
 class Person {
 
     protected $name;
+    protected $age;
 
     /**
      * @param $name
@@ -36,6 +37,22 @@ class Person {
     public function getName()
     {
         return $this->name;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getAge()
+    {
+        return $this->age;
+    }
+
+    /**
+     * @param mixed $age
+     */
+    public function setAge($age)
+    {
+        $this->age = $age;
     }
 
 
