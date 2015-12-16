@@ -14,13 +14,16 @@
 class Person {
 
     protected $name;
-    protected $age;
+    protected $dateOfBirth;
+    protected $ProfilePicture;
 
     /**
      * @param $name
      */
-    public function __construct($name) {
+    public function __construct($name, $dateOfBirth, $profilePicture) {
         $this->name = $name;
+        $this->dateOfBirth = $dateOfBirth;
+        $this->profilePicture = $profilePicture;
     }
 
     /**
@@ -42,18 +45,37 @@ class Person {
     /**
      * @return mixed
      */
-    public function getAge()
+    public function getDateOfBirth()
     {
-        return $this->age;
+        return $this->dateOfBirth;
     }
 
     /**
-     * @param mixed $age
+     * @param mixed $dateOfBirth
      */
-    public function setAge($age)
+    public function setDateOfBirth($dateOfBirth)
     {
-        $this->age = $age;
+        $this->dateOfBirth = $dateOfBirth;
     }
+
+    /**
+     * @return mixed
+     */
+    public function getProfilePicture()
+    {
+        return $this->ProfilePicture;
+    }
+
+    /**
+     * @param mixed $ProfilePicture
+     */
+    public function setProfilePicture($ProfilePicture)
+    {
+        $this->ProfilePicture = $ProfilePicture;
+    }
+
+
+
 
 
 }
