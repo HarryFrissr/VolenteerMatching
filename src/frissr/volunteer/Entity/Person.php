@@ -15,12 +15,13 @@ class Person {
 
     protected $name;
     protected $dateOfBirth;
-    protected $ProfilePicture;
+    protected $profilePicture;
+    protected $password;
 
     /**
      * @param $name
      */
-    public function __construct($name, $dateOfBirth, $profilePicture) {
+    public function __construct($name, $dateOfBirth, $profilePicture, $password) {
         $this->name = $name;
         $this->dateOfBirth = $dateOfBirth;
         $this->profilePicture = $profilePicture;
@@ -72,6 +73,22 @@ class Person {
     public function setProfilePicture($ProfilePicture)
     {
         $this->ProfilePicture = $ProfilePicture;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @param mixed $password
+     */
+    public function setPassword($password)
+    {
+        $this->password = $password;
     }
 
 
