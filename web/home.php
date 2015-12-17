@@ -8,7 +8,7 @@
 
 require_once __DIR__ . './../vendor' . '/autoload.php';
 
-use Frissr\Volunteer\Controller\ContactController;
+use Frissr\Volunteer\Controller\HomeController;
 
-$controller = new ContactController();
+$controller = new HomeController();
 echo $controller->indexAction();
