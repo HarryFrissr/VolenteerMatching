@@ -4,13 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-<<<<<<< HEAD
-    "hash": "9ce5b95ee7a2cb1a93d53d9bc3122aae",
-    "content-hash": "3ff30f4625d58ac98448b02a65b2de35",
-=======
-    "hash": "908755995225efec51765e01c7a51a43",
-    "content-hash": "678bc17e17c61d44ccfeae48df061255",
->>>>>>> c0ee849dd6a1133f7aa498f8a7910bad9f9b69bf
+    "hash": "073f26f233c495352d2080438d3ee096",
+    "content-hash": "d1c7b4f0edfb3a384984ade2f4935b18",
     "packages": [
         {
             "name": "doctrine/instantiator",
@@ -1025,6 +1020,65 @@
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
             "time": "2015-11-30 12:36:17"
+        },
+        {
+            "name": "symfony/dependency-injection",
+            "version": "v3.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/dependency-injection.git",
+                "reference": "b8e19bafc334ee0a9edca028b666f4cd3bba2233"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/dependency-injection/zipball/b8e19bafc334ee0a9edca028b666f4cd3bba2233",
+                "reference": "b8e19bafc334ee0a9edca028b666f4cd3bba2233",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.5.9"
+            },
+            "require-dev": {
+                "symfony/config": "~2.8|~3.0",
+                "symfony/expression-language": "~2.8|~3.0",
+                "symfony/yaml": "~2.8|~3.0"
+            },
+            "suggest": {
+                "symfony/config": "",
+                "symfony/proxy-manager-bridge": "Generate service proxies to lazy load them",
+                "symfony/yaml": ""
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "3.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Symfony\\Component\\DependencyInjection\\": ""
+                },
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ]
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Fabien Potencier",
+                    "email": "fabien@symfony.com"
+                },
+                {
+                    "name": "Symfony Community",
+                    "homepage": "https://symfony.com/contributors"
+                }
+            ],
+            "description": "Symfony DependencyInjection Component",
+            "homepage": "https://symfony.com",
+            "time": "2015-11-30 08:18:52"
         },
         {
             "name": "symfony/polyfill-mbstring",
