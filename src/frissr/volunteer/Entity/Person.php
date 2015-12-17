@@ -21,7 +21,7 @@ class Person {
     /**
      * @param $name
      */
-    public function __construct($name, $dateOfBirth, $profilePicture, $password) {
+    public function __construct($name, $dateOfBirth = null, $profilePicture = null, $password = null) {
         $this->name = $name;
         $this->dateOfBirth = $dateOfBirth;
         $this->profilePicture = $profilePicture;
