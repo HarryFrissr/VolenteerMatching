@@ -1,7 +1,1 @@
-<?php
-/**
- * Created by PhpStorm.
- * User: Michelle
- * Date: 17-12-2015
- * Time: 18:34
- */
+<h2><?php echo $title?></h2>

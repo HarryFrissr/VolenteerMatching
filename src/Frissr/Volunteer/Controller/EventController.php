@@ -22,4 +22,8 @@ class EventController
         $list[] = new Event();
         include(__DIR__ . '/../../../../app/views/event/overview.html.php');
     }
+
+    public function showAction(){
+        // TODO functie toevoegen om eigenschappen event te laten zien op eventpagina
+    }
 }
