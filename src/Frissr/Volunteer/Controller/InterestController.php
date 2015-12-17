@@ -9,16 +9,17 @@
 namespace Frissr\Volunteer\Controller;
 
 
-class EntityController {
+class InterestController {
 
     public function listAction() {
-        $list = [];
+        include(__DIR__ . '/../../../../app/views/entity/testlist.php');
+
 
         //get from DB
 
         // verwerk data
 
-        include(__DIR__ . '/../../../../app/views/pages/list.html.php');
+        include(__DIR__ . '/../../../../app/views/pages/interests.html.php');
     }
 
     public function indexAction() {
