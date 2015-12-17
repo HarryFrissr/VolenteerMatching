@@ -10,5 +10,7 @@ namespace Frissr\Volunteer\Entity;
 
 
 class Event {
-
+    public function getTitle() {
+        return "undefined";
+    }
 }
