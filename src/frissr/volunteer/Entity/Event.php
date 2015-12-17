@@ -15,17 +15,19 @@ class Event {
     protected $date;
     protected $time;
     protected $maxNumberOfParticipants;
+    protected $numberOfParticipants;
     protected $organiser;
     protected $location;
 
-    public function __construct($title , $date) {
-        $this->$title = $title;
-        $this->$date = $date;
+    public function __construct($title , $date=0) {
+        $this->title = $title;
+        $this->date = $date;
     }
 
     /**
      * @return mixed
      */
+
     public function getTitle()
     {
         return $this->title;
@@ -34,6 +36,7 @@ class Event {
     /**
      * @param mixed $title
      */
+
     public function setTitle($title)
     {
         $this->title = $title;
@@ -42,6 +45,7 @@ class Event {
     /**
      * @return mixed
      */
+
     public function getDescription()
     {
         return $this->description;
@@ -50,6 +54,7 @@ class Event {
     /**
      * @param mixed $description
      */
+
     public function setDescription($description)
     {
         $this->description = $description;
@@ -58,6 +63,7 @@ class Event {
     /**
      * @return mixed
      */
+
     public function getDate()
     {
         return $this->date;
@@ -66,6 +72,7 @@ class Event {
     /**
      * @param mixed $date
      */
+
     public function setDate($date)
     {
         $this->date = $date;
@@ -74,6 +81,7 @@ class Event {
     /**
      * @return mixed
      */
+
     public function getTime()
     {
         return $this->time;
@@ -82,6 +90,7 @@ class Event {
     /**
      * @param mixed $time
      */
+
     public function setTime($time)
     {
         $this->time = $time;
@@ -90,22 +99,43 @@ class Event {
     /**
      * @return integer
      */
+
     public function getMaxNumberOfParticipants()
     {
         return $this->maxNumberOfParticipants;
     }
 
     /**
-     * @param integer $maxiNumberOfParticipants
+     * @param integer $maxNumberOfParticipants
      */
+
     public function setMaxNumberOfParticipants($maxNumberOfParticipants)
     {
         $this->maxNumberOfParticipants = $maxNumberOfParticipants;
     }
 
     /**
+     * @param integer $numberOfParticipants
+     */
+
+    public function getNumberOfParticipants()
+    {
+        return $this->numberOfParticipants;
+    }
+
+    /**
      * @return Person
      */
+
+    public function setNumberOfParticipants($numberOfParticipants)
+    {
+        $this->numberOfParticipants = $numberOfParticipants;
+    }
+
+    /**
+     * @param integer $numberOfParticipants
+     */
+
     public function getOrganiser()
     {
         return $this->organiser;
@@ -114,6 +144,7 @@ class Event {
     /**
      * @param Person $organiser
      */
+
     public function setOrganiser(Person $organiser)
     {
         $this->organiser = $organiser;
@@ -122,6 +153,7 @@ class Event {
     /**
      * @return Location
      */
+
     public function getLocation()
     {
         return $this->location;
@@ -130,6 +162,7 @@ class Event {
     /**
      * @param Location $location
      */
+    
     public function setLocation(Location $location)
     {
         $this->location = $location;
