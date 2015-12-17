@@ -13,6 +13,8 @@ class HomeController
 {
     public function indexAction() {
         // TODO Maak het path naar de Views eenvoudig beschikbaar
-        return file_get_contents(__DIR__ . '/../../../../app/views/pages/home2.html');
+        $title = "Volunteer Matching";
+        $body = "<p>Test123</p>";
+        return require (__DIR__ . '/../../../../app/views/pages/home2.html.php');
     }
 }
