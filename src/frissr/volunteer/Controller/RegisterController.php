@@ -10,9 +10,19 @@ namespace Frissr\Volunteer\Controller;
 
 use Frissr\Volunteer\Entity\Person;
 use DateTime;
+use Symfony\Component\HttpFoundation\Session\Session;
 
 class RegisterController {
 
+    protected $session = null;
+
+    public function __construct() {
+        // TODO Get the session from the container
+        // TODO How to get the Container into the Controller
+
+        $this->session = new Session();
+        $this->session->start();
+    }
     public function registerAction($name = null, $email = null, $accept) {
 
         // TODO Maak een Render functie aan.
@@ -32,13 +42,22 @@ class RegisterController {
 
         // TODO Breng de gebruiker op de hoogte van zijn inschrijving
         // TODO Mail de beheerder dat er een inschrijving is
-        // TODO Zet de inschrijving in de database
+
+        $this->sendRegisterRequestToDatabase($name, $email, $accept);
         $this->sendEmailToPerson($name, $email, $accept);
 
 
         include(__DIR__ . '/../../../../app/views/person/registerThankYou.html.php');
     }
 
+    private function sendRegisterRequestToDatabase($name, $email, $accept)
+    {
+        // TODO Zet de inschrijving in de database
+
+        // TODO There will be several items which I want to get from the Container.
+        // TODO Find a solution the fits all
+        $this->session->getFlashBag()->add('notice', 'Register request set to the database.');
+    }
     /**
      * @param $name
      * @param $email
@@ -53,5 +72,11 @@ class RegisterController {
         $date = new DateTime('now');
         fwrite($handle, "{$date->getTimestamp()};{$name};{$email};{$accept}" . PHP_EOL);
         fclose($handle);
+
+        // TODO Get the session from the container
+        // TODO How to get the Container into the Controller
+        // TODO There will be several items which I want to get from the Container.
+        // TODO Find a solution the fits all
+        $this->session->getFlashBag()->add('notice', 'Mail send to person.');
     }
 }

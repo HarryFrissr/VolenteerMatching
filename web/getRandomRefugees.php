@@ -6,14 +6,17 @@
  * Time: 9:56
  */
 
+// TODO Two require once. Remove them by refactoring
 require_once __DIR__ . './../vendor' . '/autoload.php';
+require_once __DIR__ . './../app/config' . '/services.php';
 
 use Frissr\Volunteer\Service\FixedRefugeeService;
 use Frissr\Volunteer\Entity\Refugee;
 
 $count = 8;
-// TODO Maak hier een service van
-$service = new FixedRefugeeService();
+
+// TODO Maak gegbruik van een Interface. Ik wil weten welke methodes ik kan en mag aanroepen
+$service = $container->get('fixed_refugee_list');
 $refugees = $service->getRefugees($count);
 
 /**
