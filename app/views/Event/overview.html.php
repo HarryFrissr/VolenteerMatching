@@ -5,7 +5,7 @@
 } ?>
 <ul>
     <?php foreach ($list as $item) : ?>
-        <li><?php echo $item->getTitle() ?></li>
+        <li><?php echo $item->getDate() ." -  " . $item->getTitle() ?></li>
     <?php endforeach ?>
 </ul>
 

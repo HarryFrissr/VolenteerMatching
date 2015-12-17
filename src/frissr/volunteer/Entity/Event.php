@@ -18,9 +18,9 @@ class Event {
     protected $organiser;
     protected $location;
 
-    public function __construct($title , $date) {
-        $this->$title = $title;
-        $this->$date = $date;
+    public function __construct($title , $date=0) {
+        $this->title = $title;
+        $this->date = $date;
     }
 
     /**

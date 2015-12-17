@@ -14,12 +14,12 @@ class EventController
     public function indexAction(){
         $list = [];
 
-        $list[] = new Event();
-        $list[] = new Event();
-        $list[] = new Event();
-        $list[] = new Event();
-        $list[] = new Event();
-        $list[] = new Event();
+        $list[] = new Event("a");
+        $list[] = new Event(2);
+        $list[] = new Event(3);
+        $list[] = new Event(4);
+        $list[] = new Event(5);
+        $list[] = new Event(6);
         include(__DIR__ . '/../../../../app/views/event/overview.html.php');
     }
 }
