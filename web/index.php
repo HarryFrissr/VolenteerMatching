@@ -16,6 +16,7 @@ echo "Welkom op de Matching website voor Vluchtelingen en Vrijwilligers in Neder
 
 <div class="nav">
     <ul>
+        <li><a href="home.php">Home</a></li>
         <li><a href="contact.php">Contact</a></li>
         <li><a href="register.php">Register</a></li>
         <li><a href="login.php">Login</a></li>
