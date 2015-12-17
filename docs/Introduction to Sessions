@@ -1,0 +1,12 @@
+Introduction
+
+Use Sessions to store information in memory for the time the user is connected to your website.
+
+Install
+
+Composer symfony/http-foundation
+
+Links
+
+https://symfony.com/doc/current/components/http_foundation/introduction.html
+http://symfony.com/doc/current/components/http_foundation/sessions.html

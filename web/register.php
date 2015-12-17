@@ -8,6 +8,7 @@
 
 //Weer die autoload, vind een oplossing om deze alleen in bijvoorbeeld de index.php aan te roepen
 require_once __DIR__ . './../vendor' . '/autoload.php';
+require_once __DIR__ . './../app/config' . '/services.php';
 
 use Frissr\Volunteer\Controller\RegisterController;
 
@@ -18,6 +19,13 @@ $accept = $_POST['person_accept'];
 $controller = new RegisterController();
 if (isset($name) && isset($email) && isset($accept)) {
     $controller->handleRegisterAction($name, $email, $accept);
+
+    // retrieve messages
+    $session = $container->get('session');
+    foreach ($session->getFlashBag()->get('notice', array()) as $message) {
+        echo '<div class="flash-notice">'.$message.'</div>';
+    }
+
 } else {
     $controller->registerAction($name, $email, $accept);
 }

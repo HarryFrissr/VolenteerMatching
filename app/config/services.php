@@ -20,3 +20,4 @@ use Symfony\Component\DependencyInjection\ContainerBuilder;
 $container = new ContainerBuilder();
 $container->register('foo', 'Frissr\Volunteer\Entity\Foo');
 $container->register('fixed_refugee_list', 'Frissr\Volunteer\Service\FixedRefugeeService');
+$container->register('session' , 'Symfony\Component\HttpFoundation\Session\Session');
