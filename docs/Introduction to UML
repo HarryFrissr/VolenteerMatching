@@ -1,0 +1,30 @@
+UML Introductie
+---------------
+
+De Unified Modeling Language is een modelmatige taal om objectgeoriënteerde analyses en ontwerpen voor een
+informatiesysteem te kunnen maken. UML is ontworpen in de jaren negentig en het is sinds 1997 een standaard. Kenmerkend
+is dat de UML-modellen een grafische weergave zijn van bepaalde aspecten van het informatiesysteem.
+
+Terms
+-----
+
+- Classes and sub classes
+- Relations
+  - One on One
+  - One to Many
+  - Many to One
+  - Many to Many
+
+Free Editors
+------------
+
+http://alexdp.free.fr/violetumleditor/page.php
+
+PHPStorm also has an option.
+
+Links
+-----
+
+http://bootcamp.hvsoftware.nl/les_uml.php#/
+http://alexdp.free.fr/violetumleditor/page.php
+https://nl.wikipedia.org/wiki/Unified_Modeling_Language
