@@ -8,11 +8,13 @@
 
 namespace Frissr\Volunteer\Controller;
 
+use Frissr\Volunteer\Entity\InterestRepo as InterestRepo;
 
 class InterestController {
 
     public function listAction() {
-        include(__DIR__ . '/../../../../app/views/entity/testlist.php');
+        $finder = new InterestRepo();
+        $list=$finder->findAll();
 
 
         //get from DB
