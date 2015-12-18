@@ -11,4 +11,13 @@ namespace Frissr\Volunteer\Entity;
 
 class Interest {
 
+    public function __construct($name, $category)
+    {
+        $this->name = $name;
+        $this->category= $category;
+    }
+
+
+
+
 }
