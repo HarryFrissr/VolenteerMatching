@@ -1,5 +1,6 @@
 <?php
-namespace LibraryController;
+
+namespace Frissr\FrontController;
 
 interface FrontControllerInterface
 {
