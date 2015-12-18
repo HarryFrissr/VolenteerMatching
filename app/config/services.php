@@ -44,3 +44,19 @@ $container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeS
 
 $container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
+
+$config = new \Doctrine\DBAL\Configuration();
+//..
+$connectionParams = array(
+    // When using mySQL
+//    'dbname' => 'mydb',
+//    'user' => 'user',
+//    'password' => 'secret',
+//    'host' => 'localhost',
+//    'driver' => 'pdo_mysql',
+
+    // When using sqlite
+    'url' => 'sqlite://db.sqlite'
+);
+$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+$container->set('db', $conn);
