@@ -12,51 +12,52 @@ use Frissr\Volunteer\Entity\Person;
 use DateTime;
 use Symfony\Component\HttpFoundation\Session\Session;
 
-class RegisterController {
+class RegisterController extends Controller {
 
-    protected $session = null;
-
-    public function __construct() {
-        // TODO Get the session from the container
-        // TODO How to get the Container into the Controller
-
-        $this->session = new Session();
-        $this->session->start();
-    }
+    /**
+     * @param null $name
+     * @param null $email
+     * @param $accept
+     * @return string
+     */
     public function registerAction($name = null, $email = null, $accept) {
-
-        // TODO Maak een Render functie aan.
-        // TODO Maak gebruik van templates
-
+        // Data ophalen
         $person = new Person($name);
-        // TODO Maak een property email aan
-        // TODO Maak de property toegankelijk via een getter/setter
-        $person->email = $email;
+        $person->setEmail($email);
 
-        include(__DIR__ . '/../../../../app/views/person/register.html.php');
+        // Verwerk data
+
+        // Render de data
+        return $this->render('person/register.html.php', array('person' => $person));
     }
 
+    /**
+     * @param $name
+     * @param $email
+     * @param $accept
+     * @return string
+     */
     public function handleRegisterAction($name, $email, $accept) {
+        // Data ophalen
         $person = new Person($name);
-        $person->email = $email;
+        $person->setEmail($email);
 
         // TODO Breng de gebruiker op de hoogte van zijn inschrijving
         // TODO Mail de beheerder dat er een inschrijving is
-
+        // Verwerk data
         $this->sendRegisterRequestToDatabase($name, $email, $accept);
         $this->sendEmailToPerson($name, $email, $accept);
 
 
-        include(__DIR__ . '/../../../../app/views/person/registerThankYou.html.php');
+        // Render de data
+        return $this->render('person/registerThankYou.html.php', array('person' => $person));
     }
 
     private function sendRegisterRequestToDatabase($name, $email, $accept)
     {
         // TODO Zet de inschrijving in de database
 
-        // TODO There will be several items which I want to get from the Container.
-        // TODO Find a solution the fits all
-        $this->session->getFlashBag()->add('notice', 'Register request set to the database.');
+        $this->getSession()->getFlashBag()->add('notice', 'Register request set to the database.');
     }
     /**
      * @param $name
@@ -65,7 +66,7 @@ class RegisterController {
      */
     private function sendEmailToPerson($name, $email, $accept)
     {
-// TODO Zet tijdelijk weg in een tekst bestand
+        // TODO Zet tijdelijk weg in een tekst bestand
         // TODO Zet deze in een aparte klasse
         // TODO Haal het path op via een eenvoudige manier, zonder al die ./../../
         $handle = fopen(__DIR__ . '/../../../../data/register.txt', "a");
@@ -73,10 +74,6 @@ class RegisterController {
         fwrite($handle, "{$date->getTimestamp()};{$name};{$email};{$accept}" . PHP_EOL);
         fclose($handle);
 
-        // TODO Get the session from the container
-        // TODO How to get the Container into the Controller
-        // TODO There will be several items which I want to get from the Container.
-        // TODO Find a solution the fits all
-        $this->session->getFlashBag()->add('notice', 'Mail send to person.');
+        $this->getSession()->getFlashBag()->add('notice', 'Mail send to person.');
     }
 }

@@ -8,25 +8,26 @@
 
 namespace Frissr\Volunteer\Controller;
 
+use Frissr\Volunteer\Entity\Foo;
 
-class EntityController {
+class EntityController extends Controller {
 
     public function listAction() {
-        $list = [];
-
+        $list = [new Foo('abc'), new Foo('def')];
         //get from DB
 
         // verwerk data
 
-        include(__DIR__ . '/../../../../app/views/pages/list.html.php');
+        return $this->render('entity/list.html.php', array('list' => $list));
     }
 
     public function indexAction() {
-        include(__DIR__ . '/../../../../app/views/entity/list.html.php');
+        $list = [];
+        return $this->render('entity/list.html.php', array('list' => $list));
     }
 
     public function createAction() {
-        include(__DIR__ . '/../../../../app/views/entity/create.html.php');
+        return $this->render('entity/create.html.php');
     }
 
     public function readAction($id = 0) {
@@ -34,14 +35,14 @@ class EntityController {
 
         $item = strtoupper($item);
 
-        include(__DIR__ . '/../../../../app/views/entity/read.html.php');
+        return $this->render('entity/read.html.php', array('item' => $item));
     }
 
     public function updateAction($id = 0) {
-        include(__DIR__ . '/../../../../app/views/entity/update.html.php');
+        return $this->render('entity/update.html.php');
     }
 
     public function deleteAction($id = 0) {
-        include(__DIR__ . '/../../../../app/views/entity/delete.html.php');
+        return $this->render('entity/delete.html.php');
     }
 } 

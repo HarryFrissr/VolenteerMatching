@@ -13,13 +13,22 @@
  */
 class Person {
 
+    /**
+     * @var string
+     */
     protected $name;
+
+    /**
+     * @var string
+     */
+    protected $email;
+
     protected $dateOfBirth;
     protected $profilePicture;
     protected $password;
 
     /**
-     * @param $name
+     * @param string $name
      */
     public function __construct($name, $dateOfBirth = null, $profilePicture = null, $password = null) {
         $this->name = $name;
@@ -27,12 +36,15 @@ class Person {
         $this->profilePicture = $profilePicture;
     }
 
+    /**
+     * @return string
+     */
     public function __toString() {
         return $this->name;
     }
 
     /**
-     * @param mixed $name
+     * @param string $name
      */
     public function setName($name)
     {
@@ -40,12 +52,29 @@ class Person {
     }
 
     /**
-     * @return mixed
+     * @return string
      */
     public function getName()
     {
         return $this->name;
     }
+
+    /**
+     * @param string $email
+     */
+    public function setEmail($email)
+    {
+        $this->email = $email;
+    }
+
+    /**
+     * @return string
+     */
+    public function getEmail()
+    {
+        return $this->email;
+    }
+
 
     /**
      * @return mixed

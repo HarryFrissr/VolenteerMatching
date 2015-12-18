@@ -16,9 +16,9 @@ $name = $_POST['person_name'];
 $email = $_POST['person_email'];
 $accept = $_POST['person_accept'];
 
-$controller = new RegisterController();
+$controller = new RegisterController($container);
 if (isset($name) && isset($email) && isset($accept)) {
-    $controller->handleRegisterAction($name, $email, $accept);
+    echo $controller->handleRegisterAction($name, $email, $accept);
 
     // retrieve messages
     $session = $container->get('session');
@@ -27,5 +27,5 @@ if (isset($name) && isset($email) && isset($accept)) {
     }
 
 } else {
-    $controller->registerAction($name, $email, $accept);
+    echo $controller->registerAction($name, $email, $accept);
 }
