@@ -33,3 +33,4 @@ class FixedRefugeeService {
         return $refugees;
     }
 }
+
