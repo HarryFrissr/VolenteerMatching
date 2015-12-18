@@ -13,12 +13,26 @@ require_once __DIR__ . './../app/config' . '/services.php';
 use Frissr\Volunteer\Service\FixedRefugeeService;
 use Frissr\Volunteer\Entity\Refugee;
 
-$count = 8;
+$count = 4;
 
 // TODO Maak gegbruik van een Interface. Ik wil weten welke methodes ik kan en mag aanroepen
-$service = $container->get('fixed_refugee_list');
-$refugees = $service->getRefugees($count);
+//$service = $container->get('fixed_refugee_list');
+//$refugees = $service->getRefugees($count);
 
+//$me_service = $container->get('message_service');
+//var_dump($me_service->findAll());
+
+$faker = $container->get('faker');
+echo $faker->name . ' (' . $faker->email . ')';
+echo '<br>';
+echo $faker->text;
+echo '<br>';
+echo $faker->name . ' (' . $faker->email . ')';
+echo '<br>';
+echo $faker->text;
+echo '<br>';
+echo '<br>';
+die;
 /**
  * De View
  * @var Refugee $refugee

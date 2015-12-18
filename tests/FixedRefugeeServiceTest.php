@@ -7,11 +7,14 @@
  */
 
 use Frissr\Volunteer\Service\FixedRefugeeService;
+use Faker\Factory;
 
 class FixedRefugeeServiceTest extends PHPUnit_Framework_TestCase {
 
     public function testService() {
-        $service = new FixedRefugeeService();
+        $faker = Factory::create();
+
+        $service = new FixedRefugeeService($faker);
         $this->getCount(0, $service->getRefugees(0));
         $this->getCount(4, $service->getRefugees(4));
         $this->getCount(10, $service->getRefugees(10));
