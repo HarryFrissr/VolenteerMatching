@@ -1,0 +1,15 @@
+The Templating Component
+
+The Templating component provides all the tools needed to build any kind of template system.
+
+It provides an infrastructure to load template files and optionally monitor them for changes. It also provides a concrete template engine implementation using PHP with additional tools for escaping and separating templates into blocks and layouts.
+
+Composer
+
+symfony/templating
+
+Noot: symfony/templating suggests installing psr/log (For using debug logging in loaders)
+
+Links
+
+http://symfony.com/doc/current/components/templating/introduction.html

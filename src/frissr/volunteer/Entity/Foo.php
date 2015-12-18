@@ -38,6 +38,6 @@ class Foo {
      * @return mixed
      */
     public function getName() {
-        return $this->getName();
+        return $this->name;
     }
 }

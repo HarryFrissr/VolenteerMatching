@@ -1,5 +1,6 @@
 <?php
-namespace LibraryController;
+
+namespace Frissr\FrontController;
 
 class FrontController implements FrontControllerInterface
 {
@@ -9,7 +10,7 @@ class FrontController implements FrontControllerInterface
     protected $controller    = self::DEFAULT_CONTROLLER;
     protected $action        = self::DEFAULT_ACTION;
     protected $params        = array();
-    protected $basePath      = "mybasepath/";
+    protected $basePath      = "src/";
     
     public function __construct(array $options = array()) {
         if (empty($options)) {
@@ -30,11 +31,13 @@ class FrontController implements FrontControllerInterface
     
     protected function parseUri() {
         $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
-        $path = preg_replace('/[^a-zA-Z0-9]//', "", $path);
+        $path = preg_replace('/[^a-zA-Z0-9]/', "", $path);
         if (strpos($path, $this->basePath) === 0) {
             $path = substr($path, strlen($this->basePath));
         }
         @list($controller, $action, $params) = explode("/", $path, 3);
+        var_dump($controller);
+        var_dump($action);
         if (isset($controller)) {
             $this->setController($controller);
         }

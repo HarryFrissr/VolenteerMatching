@@ -7,8 +7,9 @@
  */
 
 require_once __DIR__ . './../vendor' . '/autoload.php';
+require_once __DIR__ . './../app/config' . '/services.php';
 
 use Frissr\Volunteer\Controller\EntityController;
 
-$controller = new EntityController();
+$controller = new EntityController($container);
 echo $controller->listAction();

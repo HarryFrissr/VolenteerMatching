@@ -12,9 +12,10 @@ use Faker\Factory;
 
 class FixedRefugeeService {
 
-    // TODO Geef de faker door aan de constructor
-    public function __construct() {
+    protected $faker;
 
+    public function __construct($faker) {
+        $this->faker = $faker;
     }
 
     /**
@@ -22,13 +23,11 @@ class FixedRefugeeService {
      * @return array
      */
     public function getRefugees($limit = 7) {
-        // TODO Vermijd het aanmaken van classes in de methode - SOLID.
-        // TODO Geef de class door via de constructor.
-        $faker = Factory::create();
+//        $faker = Factory::create();
 
         $refugees = [];
         for ($i = 0; $i < $limit; $i++) {
-            $refugees[] = new Refugee($faker->name);
+            $refugees[] = new Refugee($this->faker->name);
         }
         return $refugees;
     }

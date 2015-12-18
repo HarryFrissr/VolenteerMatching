@@ -8,10 +8,9 @@
 
 namespace Frissr\Volunteer\Controller;
 
-class ContactController {
+class ContactController extends Controller {
 
     public function indexAction() {
-        // TODO Maak het path naar de Views eenvoudig beschikbaar
-        return file_get_contents(__DIR__ . '/../../../../app/views/pages/contact.html');
+        return $this->render('pages/contact.html');
     }
 }

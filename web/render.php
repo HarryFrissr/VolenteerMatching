@@ -9,7 +9,5 @@
 require_once __DIR__ . './../vendor' . '/autoload.php';
 require_once __DIR__ . './../app/config' . '/services.php';
 
-use Frissr\Volunteer\Controller\HomeController;
-
-$controller = new HomeController();
-echo $controller->indexAction();
+$templating = $container->get('templating');
+echo $templating->render('pages\faq.html.php', array('faqs' => ['test', 'sample']));
