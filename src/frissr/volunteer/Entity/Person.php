@@ -27,6 +27,10 @@ class Person {
         $this->profilePicture = $profilePicture;
     }
 
+    public function __toString() {
+        return $this->name;
+    }
+
     /**
      * @param mixed $name
      */
