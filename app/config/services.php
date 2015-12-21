@@ -56,7 +56,7 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 $config = new \Doctrine\DBAL\Configuration();
 //..
 $connectionParams = array(
-    'dbname' => 'test',
+    'dbname' => 'Person',
     'user' => 'root',
     'password' => '',
     'host' => 'localhost:3306',
@@ -67,13 +67,20 @@ $connectionParams = array(
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 $container->set('db', $conn);
 
+$sql = "Select * from Person ";
+$stmt = $conn->query($sql);
+
+var_dump($stmt);
+die();
 $schema = new \Doctrine\DBAL\Schema\Schema();
+
+
 //Person Table
 $personTable = $schema->createTable("Person");
 $personTable->addColumn("id", "integer", array("unsigned" => true));
-$personTable->addColumn("first_name", "string", array("length" => 64));
-$personTable->addColumn("last_name", "string", array("length" => 64));
-$personTable->addColumn("e-mail", "string", array("length" => 256));
+$personTable->addColumn("firstName", "string", array("length" => 64));
+$personTable->addColumn("lastName", "string", array("length" => 64));
+$personTable->addColumn("email", "string", array("length" => 256));
 
 $personTable->addColumn("profile_image", "object", array("length" => 1));
 $personTable->addColumn("birthday", "string", array("length"=>8));
