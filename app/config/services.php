@@ -67,10 +67,18 @@ $connectionParams = array(
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 $container->set('db', $conn);
 
-$sql = "Select * from Person ";
+//to test the database
+$sql = "Select * from person ";
 $stmt = $conn->query($sql);
 
-var_dump($stmt);
+while ($row = $stmt->fetch()) {
+    echo $row['firstName'] . '<br>';
+}
+$sql2= "INSERT INTO `person` (`id`, `firstName`, `lastName`, `email`, `dateOfBirth`, `password`)
+VALUES ('', 'b', 'b', 'c', 'd', 'e');";
+$stmt2 = $conn->query($sql2);
+$sql3 = "DELETE FROM person WHERE firstName='b'";
+$stmt3 = $conn->query($sql3);
 die();
 $schema = new \Doctrine\DBAL\Schema\Schema();
 
