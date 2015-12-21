@@ -73,6 +73,6 @@ class FrontController implements FrontControllerInterface
     }
     
     public function run() {
-        return call_user_func_array(array(new $this->controller(), $this->action), $this->params);
+        return call_user_func_array(array(new $this->controller($this->container), $this->action), $this->params);
     }
 }

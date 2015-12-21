@@ -49,14 +49,14 @@ $config = new \Doctrine\DBAL\Configuration();
 //..
 $connectionParams = array(
     // When using mySQL
-//    'dbname' => 'mydb',
-//    'user' => 'user',
-//    'password' => 'secret',
-//    'host' => 'localhost',
-//    'driver' => 'pdo_mysql',
+    'dbname' => 'frissr',
+    'user' => 'root',
+    'password' => 'root',
+    'host' => 'localhost',
+    'driver' => 'pdo_mysql',
 
     // When using sqlite
-    'url' => 'sqlite://db.sqlite'
+//    'url' => 'sqlite://db.sqlite'
 );
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 $container->set('db', $conn);
