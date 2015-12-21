@@ -87,7 +87,7 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 $config = new \Doctrine\DBAL\Configuration();
 //..
 $connectionParams = array(
-    'dbname' => 'test123',
+    'dbname' => 'test',
     'user' => 'root',
     'password' => '',
     'host' => 'localhost:3306',
