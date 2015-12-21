@@ -7,3 +7,6 @@ CREATE TABLE Interests
 
 
  );
+
+ INSERT INTO Interests
+ VALUES (,"Voetbal"

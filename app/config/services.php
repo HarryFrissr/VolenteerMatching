@@ -21,13 +21,6 @@ use Symfony\Component\Templating\Loader\FilesystemLoader;
  *   echo $foo;
  */
 
-use Doctrine\Common\ClassLoader;
-
-require '../../vendor/doctrine/common/lib/Doctrine/Common/ClassLoader.php';
-
-$classLoader = new ClassLoader('Doctrine', '/path/to/doctrine');
-$classLoader->register();
-
 $config = new \Doctrine\DBAL\Configuration();
 $connectionParams = array(
     'dbname' => 'database',
@@ -71,8 +64,8 @@ $usersTable->addColumn("website", "string", array("length" => 256));
 
 $usersTable->setPrimaryKey(array("id"));
 
-$platform = $conn->getDatabasePlatform();
-$queries = $schema->toSql($platform);
+//$platform = $conn->getDatabasePlatform();
+//$queries = $schema->toSql($platform);
 
 
 
@@ -94,7 +87,7 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 $config = new \Doctrine\DBAL\Configuration();
 //..
 $connectionParams = array(
-    'dbname' => 'test',
+    'dbname' => 'test123',
     'user' => 'root',
     'password' => '',
     'host' => 'localhost:3306',
