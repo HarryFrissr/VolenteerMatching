@@ -6,13 +6,13 @@
  * Time: 18:38
  */
 ?>
-<h1>Messages</h1>
+<h1>Message with <?php echo $chatpartner_name; ?></h1>
 
 <form action="messages.php" method="post">
 
     <ul>
-        <?php foreach ($list as $item) : ?>
-            <li><?php echo $item ?></li>
+        <?php foreach ($results as $result): ?>
+            <li><?php echo (($result['sender'] == $self) ? "you: " : $chatpartner_name . ": "). $result['content'] ?></li>
         <?php endforeach ?>
     </ul>
 

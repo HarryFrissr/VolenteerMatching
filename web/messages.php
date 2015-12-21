@@ -11,7 +11,10 @@ require_once __DIR__ . './../app/config' . '/services.php';
 
 use Frissr\Volunteer\Controller\MessageController;
 
-$controller = new MessageController();
+
+
+$controller = new MessageController($container);
+
 
 if (isset($_POST['message_content'])){
     $message_content = $_POST['message_content'];
