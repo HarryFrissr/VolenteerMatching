@@ -69,47 +69,47 @@ $container->set('db', $conn);
 
 $schema = new \Doctrine\DBAL\Schema\Schema();
 //Person Table
-$personTable = $schema -> createTable("Person");
-$personTable -> addColumn("id", "integer", array("unsigned" => true));
-$personTable -> addColumn("first_name", "string", array("length" => 64));
-$personTable -> addColumn("last_name", "string", array("length" => 64));
-$personTable -> addColumn("e-mail", "string", array("length" => 256));
+$personTable = $schema->createTable("Person");
+$personTable->addColumn("id", "integer", array("unsigned" => true));
+$personTable->addColumn("first_name", "string", array("length" => 64));
+$personTable->addColumn("last_name", "string", array("length" => 64));
+$personTable->addColumn("e-mail", "string", array("length" => 256));
 
-$personTable -> addColumn("profile_image", "object", array("length" => 1));
-$personTable ->addColumn("birthday", "string", array("length"=>8));
+$personTable->addColumn("profile_image", "object", array("length" => 1));
+$personTable->addColumn("birthday", "string", array("length"=>8));
 
 //Interest Table
-$interestTable = $schema ->createTable("Interests");
-$interestTable ->addColumn("name", "string", array("length" => 256));
-$interestTable ->addColumn("category", "string", array("length" => 256));
+$interestTable = $schema->createTable("Interests");
+$interestTable->addColumn("name", "string", array("length" => 256));
+$interestTable->addColumn("category", "string", array("length" => 256));
 
 // Event Table
-$eventTable = $schema -> createTable("Events");
-$eventTable ->addColumn("title", "string", array("length" => 256));
-$eventTable ->addColumn("description", "text", array("length" => 256));
-$eventTable ->addColumn("date", "date", array("length" => 256));
-$eventTable ->addColumn("time","time", array("length" => 256));
-$eventTable ->addColumn("maxNumberOfParticipants", "integer", array("unsigned" => true));
-$eventTable ->addColumn("NumberOfParticipants", "integer", array("unsigned" => true));
-$eventTable ->addColumn("location", "string", array("length" => 256));
-$eventTable ->addColumn("organiser", "string", array("length" => 256));
+$eventTable = $schema->createTable("Events");
+$eventTable->addColumn("title", "string", array("length" => 256));
+$eventTable->addColumn("description", "text", array("length" => 256));
+$eventTable->addColumn("date", "date", array("length" => 256));
+$eventTable->addColumn("time","time", array("length" => 256));
+$eventTable->addColumn("maxNumberOfParticipants", "integer", array("unsigned" => true));
+$eventTable->addColumn("NumberOfParticipants", "integer", array("unsigned" => true));
+$eventTable->addColumn("location", "string", array("length" => 256));
+$eventTable->addColumn("organiser", "string", array("length" => 256));
 
 //Foo Table
-$fooTable = $schema -> createTable("Foo");
-$fooTable ->addColumn("title", "string", array("length" => 256));
+$fooTable = $schema->createTable("Foo");
+$fooTable->addColumn("title", "string", array("length" => 256));
 
 //Location Table
-$locationTable = $schema -> createTable("Location");
-$locationTable ->addColumn("City", "string", array("length" => 256));
-$locationTable ->addColumn("street", "string", array("length" => 256));
-$locationTable ->addColumn("streetNumber", "integer", array("unsigned" => true));
-$locationTable ->addColumn("zip code", "string", array("length" => 10));
+$locationTable = $schema->createTable("Location");
+$locationTable->addColumn("City", "string", array("length" => 256));
+$locationTable->addColumn("street", "string", array("length" => 256));
+$locationTable->addColumn("streetNumber", "integer", array("unsigned" => true));
+$locationTable->addColumn("zip code", "string", array("length" => 10));
 
 //Refugee/Volunteer Table
-$refugee_volunteerTable = $schema -> createTable("refugee&volunteerTable");
-$refugee_volunteerTable -> addColumn("refugee", "boolean");
-$refugee_volunteerTable -> addColumn("volunteer", "boolean");
+$refugee_volunteerTable = $schema->createTable("refugee&volunteerTable");
+$refugee_volunteerTable->addColumn("refugee", "boolean");
+$refugee_volunteerTable->addColumn("volunteer", "boolean");
 
-$platform = $conn -> getDatabasePlatform();
-$queries = $schema -> toSql($platform);
+$platform = $conn->getDatabasePlatform();
+$queries = $schema->toSql($platform);
 

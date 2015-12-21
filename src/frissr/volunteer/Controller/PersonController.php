@@ -2,15 +2,17 @@
 /**
  * Created by PhpStorm.
  * User: Harry van der Valk - The Hague Intelligence Group
- * Date: 12-12-15
- * Time: 11:24
+ * Date: 21-12-15
+ * Time: 12:05
  */
 
 namespace Frissr\Volunteer\Controller;
 
-class ContactController extends Controller {
+
+class PersonController {
 
     public function indexAction() {
-        return $this->render('pages/contact.html');
+        // TODO Do nothing
+        return 'I am a Controller. Called by the front Controller';
     }
-}
+} 
