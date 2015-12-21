@@ -48,18 +48,18 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 
 // DBAL service
 
-use Doctrine\Common\ClassLoader;
-require '../vendor/doctrine/common/lib/Doctrine/Common';
-$classloader = new ClassLoader('Doctrine', './Doctrine/doctrine-dbal');
-$classloader->register();
+//use Doctrine\Common\ClassLoader;
+//require '../vendor/doctrine/common/lib/Doctrine/Common';
+//$classloader = new ClassLoader('Doctrine', './Doctrine/doctrine-dbal');
+//$classloader->register();
 
 $config = new \Doctrine\DBAL\Configuration();
 //..
 $connectionParams = array(
-    'dbname' => 'db_michelle',
-    'user' => 'user',
-    'password' => 'secret',
-    'host' => 'localhost',
+    'dbname' => 'test',
+    'user' => 'root',
+    'password' => '',
+    'host' => 'localhost:3306',
     'driver' => 'pdo_mysql',
 );
 
