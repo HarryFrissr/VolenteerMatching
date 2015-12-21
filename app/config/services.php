@@ -77,13 +77,14 @@ $schema = new \Doctrine\DBAL\Schema\Schema();
 
 //Person Table
 $personTable = $schema->createTable("Person");
-$personTable->addColumn("id", "integer", array("unsigned" => true));
+$personTable->addColumn("id", "integer", array("unsigned" => true, "autoincrement" => true));
 $personTable->addColumn("firstName", "string", array("length" => 64));
 $personTable->addColumn("lastName", "string", array("length" => 64));
+$personTable->addColumn("dateOfBirth", "date", array("length"=>8));
 $personTable->addColumn("email", "string", array("length" => 256));
+$personTable->addColumn("password", "date", array("length"=>8));
 
-$personTable->addColumn("profile_image", "object", array("length" => 1));
-$personTable->addColumn("birthday", "string", array("length"=>8));
+// TODO add profile image    $personTable->addColumn("profile_image", "object", array("length" => 1));
 
 //Interest Table
 $interestTable = $schema->createTable("Interests");
