@@ -97,15 +97,15 @@ class Person {
      */
     public function getProfilePicture()
     {
-        return $this->ProfilePicture;
+        return $this->profilePicture;
     }
 
     /**
      * @param mixed $ProfilePicture
      */
-    public function setProfilePicture($ProfilePicture)
+    public function setProfilePicture($profilePicture)
     {
-        $this->ProfilePicture = $ProfilePicture;
+        $this->profilePicture = $profilePicture;
     }
 
     /**

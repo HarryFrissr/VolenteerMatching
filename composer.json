@@ -5,8 +5,8 @@
     "license": "proprietary",
     "authors": [
         {
-            "name": "Harry van der Valk",
-            "email": "harry@frissr.nl"
+            "name": "Hiltje Conradi",
+            "email": "Hiltje.Conradi@gmail.com"
         }
     ],
     "require": {
@@ -27,7 +27,8 @@
     },
     "autoload": {
         "psr-4": {
-            "Frissr\\": "src/Frissr/"
+            "Frissr\\": "src/Frissr/",
+            "Symfony\\": "vendor/symfony/"
         }
     },
     "autoload-dev": {

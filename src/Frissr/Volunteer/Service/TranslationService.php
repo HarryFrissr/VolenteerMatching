@@ -1,4 +1,4 @@
-<?php
+<?php namespace Frissr\Volunteer\Service;
 /**
  * Created by PhpStorm.
  * User: Hiltje
@@ -6,10 +6,35 @@
  * Time: 17:17
  */
 
-namespace Frissr\Volunteer\Service;
+//require_once('../../../../vendor/autoload.php');
 
+use Symfony\Component\Translation\Loader\YamlFileLoader;
+use Symfony\Component\Translation\Translator;
 
 class TranslationService
 {
+    public $translator;
 
+    /**
+     * TranslationService constructor.
+     */
+    public function __construct()
+    {
+        $this->translator = new Translator('en_EN');
+        $this->translator->setFallbackLocales(array('en'));
+        $this->translator->addLoader('yaml', new YamlFileLoader());
+        $this->translator->addResource('yaml','../../../../app/translation/messages.nl.yml', 'en_EN');
+    }
+    public function getTranslation($word)
+    {
+        return $this->translator->trans($word);
+    }
 }
+
+//$ww = new TranslationService();
+//echo $ww->getTranslation('We');
+
+
+
+
+

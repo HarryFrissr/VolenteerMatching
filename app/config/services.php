@@ -45,6 +45,10 @@ $container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeS
 $container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
 
+$container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
+
+$container->register('db', 'Frissr\Volunteer\Service\db);
+
 $config = new \Doctrine\DBAL\Configuration();
 //..
 $connectionParams = array(
