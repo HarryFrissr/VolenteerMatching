@@ -9,14 +9,20 @@
 // TODO A second require_once. Try to use a Front Controller instead.
 require_once __DIR__ . './../vendor' . '/autoload.php';
 require_once __DIR__ . './../app/config' . '/services.php';
-
+use Frissr\Volunteer\Controller\PersonController;
+$controllerPerson = new PersonController($container);
 ?>
 
 <h2>Get services</h2>
+
 
 <?php
 
 $foo = $container->get('foo');
 
 echo $foo;
+?>
 
+<?php
+    echo $controllerPerson->indexAction();
+?>
