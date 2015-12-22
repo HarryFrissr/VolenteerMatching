@@ -30,9 +30,9 @@ class FrontController implements FrontControllerInterface
         reset($_GET);
         $stack = explode('/', key($_GET));
         $controller = array_shift($stack);
-        $controller = (isset($controller) ? $controller : 'index') . 'Controller';
+        $controller = (!empty($controller) ? $controller : 'index') . 'Controller';
         $action = array_shift($stack);
-        $action = (isset($action) ? $action : 'index') . 'Action' ;
+        $action = (!empty($action) ? $action : 'index') . 'Action' ;
         $params = $stack;
 
         if (isset($controller)) {
