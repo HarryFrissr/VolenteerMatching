@@ -19,6 +19,7 @@ use Frissr\FrontController\FrontController;
 // TODO Limit the access by IP address
 // if IP address not in 127.0.0.1 then ....
 
+$container->setParameter('env', 'dev');
 $frontController = new FrontController($container);
 
 echo $frontController->run();
