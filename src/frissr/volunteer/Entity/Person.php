@@ -2,7 +2,7 @@
 
 /**
  * Created by PhpStorm.
- * User: Harry van der Valk - The Hague Intelligence Group
+ * User: Jan Rezelman
  * Date: 11-12-15
  * Time: 13:39
  */
@@ -11,73 +11,76 @@
  * Class Person
  * @package Frissr\Volunteer\Entity
  */
+
 class Person {
 
-    /**
-     * @var string
-     */
-    protected $name;
-
-    /**
-     * @var string
-     */
-    protected $email;
-
+    protected $id;
+    protected $firstName;
+    protected $lastName;
     protected $dateOfBirth;
-    protected $profilePicture;
+    protected $email;
     protected $password;
+    // TODO Add profile picture attribute
 
-    /**
-     * @param string $name
-     */
-    public function __construct($name, $dateOfBirth = null, $profilePicture = null, $password = null) {
-        $this->name = $name;
+    public function __construct($id, $firstName = null, $lastName = null, $dateOfBirth = null, $email = null, $password = null) {
+        $this->id = $id;
+        $this->firstName = $firstName;
+        $this->lastName = $lastName;
         $this->dateOfBirth = $dateOfBirth;
-        $this->profilePicture = $profilePicture;
-    }
-
-    /**
-     * @return string
-     */
-    public function __toString() {
-        return $this->name;
-    }
-
-    /**
-     * @param string $name
-     */
-    public function setName($name)
-    {
-        $this->name = $name;
-    }
-
-    /**
-     * @return string
-     */
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    /**
-     * @param string $email
-     */
-    public function setEmail($email)
-    {
         $this->email = $email;
+        $this->password = $password;
     }
-
-    /**
-     * @return string
-     */
-    public function getEmail()
-    {
-        return $this->email;
-    }
-
 
     /**
      * @return mixed
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    /**
+     * @param mixed $id
+     */
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
+
+    /**
+     * @return null
+     */
+    public function getFirstName()
+    {
+        return $this->firstName;
+    }
+
+    /**
+     * @param null $firstName
+     */
+    public function setFirstName($firstName)
+    {
+        $this->firstName = $firstName;
+    }
+
+    /**
+     * @return null
+     */
+    public function getLastName()
+    {
+        return $this->lastName;
+    }
+
+    /**
+     * @param null $lastName
+     */
+    public function setLastName($lastName)
+    {
+        $this->lastName = $lastName;
+    }
+
+    /**
+     * @return null
      */
     public function getDateOfBirth()
     {
@@ -85,7 +88,7 @@ class Person {
     }
 
     /**
-     * @param mixed $dateOfBirth
+     * @param null $dateOfBirth
      */
     public function setDateOfBirth($dateOfBirth)
     {
@@ -93,23 +96,23 @@ class Person {
     }
 
     /**
-     * @return mixed
+     * @return null
      */
-    public function getProfilePicture()
+    public function getEmail()
     {
-        return $this->ProfilePicture;
+        return $this->email;
     }
 
     /**
-     * @param mixed $ProfilePicture
+     * @param null $email
      */
-    public function setProfilePicture($ProfilePicture)
+    public function setEmail($email)
     {
-        $this->ProfilePicture = $ProfilePicture;
+        $this->email = $email;
     }
 
     /**
-     * @return mixed
+     * @return null
      */
     public function getPassword()
     {
@@ -117,15 +120,11 @@ class Person {
     }
 
     /**
-     * @param mixed $password
+     * @param null $password
      */
     public function setPassword($password)
     {
         $this->password = $password;
     }
-
-
-
-
 
 }

@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Harry van der Valk - The Hague Intelligence Group
+ * User: Harry van der Valk - The Hague Intelliguence Group
  * Date: 17-12-15
  * Time: 10:46
  */
@@ -45,18 +45,86 @@ $container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeS
 $container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
 
+
+// DBAL service
+
+//use Doctrine\Common\ClassLoader;
+//require '../vendor/doctrine/common/lib/Doctrine/Common';
+//$classloader = new ClassLoader('Doctrine', './Doctrine/doctrine-dbal');
+//$classloader->register();
+
 $config = new \Doctrine\DBAL\Configuration();
 //..
 $connectionParams = array(
-    // When using mySQL
-    'dbname' => 'frissr',
+    'dbname' => 'Person',
     'user' => 'root',
-    'password' => 'root',
-    'host' => 'localhost',
+    'password' => '',
+    'host' => 'localhost:3306',
     'driver' => 'pdo_mysql',
-
-    // When using sqlite
-//    'url' => 'sqlite://db.sqlite'
 );
+
+
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 $container->set('db', $conn);
+
+//to test the database
+
+//$sql1= "INSERT INTO `person` (`id`, `firstName`, `lastName`, `email`, `dateOfBirth`, `password`)
+//VALUES ('', 'Harry', 'van der Valk', 'harry@test.nl', '1970-1-1', 'test');";
+//$stmt1 = $conn->query($sql1);
+
+$sql2 = "Select * from person ";
+$stmt2 = $conn->query($sql2);
+
+while ($row = $stmt2->fetch()) {
+    echo $row['id'] . ' ' . $row['firstName'] . ' ' . $row['lastName'] . '<br>';
+}
+
+die();
+$schema = new \Doctrine\DBAL\Schema\Schema();
+
+//Person Table
+    $personTable = $schema->createTable("Person");
+    $personTable->addColumn("id", "integer", array("unsigned" => true, "autoincrement" => true));
+    $personTable->addColumn("firstName", "string", array("length" => 64));
+    $personTable->addColumn("lastName", "string", array("length" => 64));
+    $personTable->addColumn("dateOfBirth", "date", array("length" => 8));
+    $personTable->addColumn("email", "string", array("length" => 256));
+    $personTable->addColumn("password", "date", array("length" => 8));
+
+// TODO add profile image    $personTable->addColumn("profile_image", "object", array("length" => 1));
+
+//Interest Table
+    $interestTable = $schema->createTable("Interests");
+    $interestTable->addColumn("name", "string", array("length" => 256));
+    $interestTable->addColumn("category", "string", array("length" => 256));
+
+// Event Table
+    $eventTable = $schema->createTable("Events");
+    $eventTable->addColumn("title", "string", array("length" => 256));
+    $eventTable->addColumn("description", "text", array("length" => 256));
+    $eventTable->addColumn("date", "date", array("length" => 256));
+    $eventTable->addColumn("time", "time", array("length" => 256));
+    $eventTable->addColumn("maxNumberOfParticipants", "integer", array("unsigned" => true));
+    $eventTable->addColumn("NumberOfParticipants", "integer", array("unsigned" => true));
+    $eventTable->addColumn("location", "string", array("length" => 256));
+    $eventTable->addColumn("organiser", "string", array("length" => 256));
+
+//Foo Table
+    $fooTable = $schema->createTable("Foo");
+    $fooTable->addColumn("title", "string", array("length" => 256));
+
+//Location Table
+    $locationTable = $schema->createTable("Location");
+    $locationTable->addColumn("City", "string", array("length" => 256));
+    $locationTable->addColumn("street", "string", array("length" => 256));
+    $locationTable->addColumn("streetNumber", "integer", array("unsigned" => true));
+    $locationTable->addColumn("zip code", "string", array("length" => 10));
+
+//Refugee/Volunteer Table
+    $refugee_volunteerTable = $schema->createTable("refugee&volunteerTable");
+    $refugee_volunteerTable->addColumn("refugee", "boolean");
+    $refugee_volunteerTable->addColumn("volunteer", "boolean");
+
+    $platform = $conn->getDatabasePlatform();
+    $queries = $schema->toSql($platform);

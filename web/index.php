@@ -9,7 +9,6 @@
 // TODO - Geef de parameters door aan de Views
 // TODO - Maak een default layout aan
 require_once __DIR__ . './../vendor' . '/autoload.php';
-
 echo "Welkom op de Matching website voor Vluchtelingen en Vrijwilligers in Nederland";
 
 ?>
