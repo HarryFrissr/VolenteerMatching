@@ -50,6 +50,7 @@ class FrontController implements FrontControllerInterface
         // TODO Remove hard-code namespace
         $controller = 'Frissr\\Volunteer\\Controller\\' . ucfirst($controller);
         if (!class_exists($controller)) {
+            // TODO Geef een nettere foutmelding
             throw new InvalidArgumentException(
                 "The action controller '$controller' has not been defined.");
         }
@@ -60,6 +61,7 @@ class FrontController implements FrontControllerInterface
     public function setAction($action) {
         $reflector = new ReflectionClass($this->controller);
         if (!$reflector->hasMethod($action)) {
+            // TODO Geef een nettere foutmelding
             throw new InvalidArgumentException(
                 "The controller action '$action' has been not defined.");
         }

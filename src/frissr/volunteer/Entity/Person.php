@@ -22,6 +22,10 @@ class Person {
     protected $password;
     // TODO Add profile picture attribute
 
+    // TODO id hoort niet in de constructor. Je weet het id van de klasse niet op het moment van aanmaken.
+    // TODO Haal Id uit de constructor
+    // TODO Maak getter/setter!! voor id
+    // TODO Maak een Entity base klasse met daarin - onder andere - id
     public function __construct($id, $firstName = null, $lastName = null, $dateOfBirth = null, $email = null, $password = null) {
         $this->id = $id;
         $this->firstName = $firstName;
@@ -31,6 +35,14 @@ class Person {
         $this->password = $password;
     }
 
+    public function setName($firstName, $lastname = null) {
+        $this->firstName = $firstName;
+        $this->lastName = $lastname;
+    }
+
+    public function getName() {
+        return trim($this->firstName . ' ' . $this->lastName);
+    }
     /**
      * @return mixed
      */
