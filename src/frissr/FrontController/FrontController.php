@@ -30,9 +30,9 @@ class FrontController implements FrontControllerInterface
         reset($_GET);
         $stack = explode('/', key($_GET));
         $controller = array_shift($stack);
-        $controller = (!empty($controller) ? $controller : 'index') . 'Controller';
+        $controller = (!empty($controller) ? strtolower($controller) : 'index') . 'Controller';
         $action = array_shift($stack);
-        $action = (!empty($action) ? $action : 'index') . 'Action' ;
+        $action = (!empty($action) ? strtolower($action) : 'index') . 'Action' ;
         $params = $stack;
 
         if (isset($controller)) {
@@ -48,7 +48,7 @@ class FrontController implements FrontControllerInterface
     
     public function setController($controller) {
         // TODO Remove hard-code namespace
-        $controller = 'Frissr\\Volunteer\\Controller\\' . ucfirst(strtolower($controller));
+        $controller = 'Frissr\\Volunteer\\Controller\\' . ucfirst($controller);
         if (!class_exists($controller)) {
             throw new InvalidArgumentException(
                 "The action controller '$controller' has not been defined.");

@@ -22,9 +22,22 @@ use Symfony\Component\Templating\Loader\FilesystemLoader;
  *   echo $foo;
  */
 
+$config = new \Doctrine\DBAL\Configuration();
+$connectionParams = array(
+    'dbname' => 'frissr_demo',
+    'user' => 'root',
+    'password' => '',
+    'host' => 'localhost',
+    'port' => 3306,
+    'charset' => 'utf8',
+    'driver' => 'pdo_mysql',
+);
+$db = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
 $container = new ContainerBuilder();
 
 $loader = new FilesystemLoader(__DIR__.'/../views/%name%');
+
 $session = new Symfony\Component\HttpFoundation\Session\Session();
 $session->start();
 
@@ -35,8 +48,22 @@ $faker = Factory::create();
 $container->set('templating', $templating);
 
 // Zet een service - bij instantie
+
 $container->set('faker', $faker);
 $container->set('session' , $session);
+$container->set('db',$db);
+
+$schema = new Doctrine\DBAL\Schema\Schema();
+$usersTable = $schema->createTable("Users");
+
+$usersTable->addColumn("id", "integer", array("unsigned" => true));
+$usersTable->addColumn("first_name", "string", array("length" => 64));
+$usersTable->addColumn("last_name", "string", array("length" => 64));
+$usersTable->addColumn("email", "string", array("length" => 256));
+$usersTable->addColumn("website", "string", array("length" => 256));
+
+$usersTable->setPrimaryKey(array("id"));
+
 
 // Registeer een service - bij naam
 $container->register('foo', 'Frissr\Volunteer\Entity\Foo');
@@ -46,43 +73,9 @@ $container->register('message_service', 'Frissr\Volunteer\Service\MessageService
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
 
 
-// DBAL service
-
-//use Doctrine\Common\ClassLoader;
-//require '../vendor/doctrine/common/lib/Doctrine/Common';
-//$classloader = new ClassLoader('Doctrine', './Doctrine/doctrine-dbal');
-//$classloader->register();
-
-$config = new \Doctrine\DBAL\Configuration();
-//..
-$connectionParams = array(
-    'dbname' => 'Person',
-    'user' => 'root',
-    'password' => '',
-    'host' => 'localhost:3306',
-    'driver' => 'pdo_mysql',
-);
-
-
-$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-$container->set('db', $conn);
-
-//to test the database
-
-//$sql1= "INSERT INTO `person` (`id`, `firstName`, `lastName`, `email`, `dateOfBirth`, `password`)
-//VALUES ('', 'Harry', 'van der Valk', 'harry@test.nl', '1970-1-1', 'test');";
-//$stmt1 = $conn->query($sql1);
-
-$sql2 = "Select * from person ";
-$stmt2 = $conn->query($sql2);
-
-while ($row = $stmt2->fetch()) {
-    echo $row['id'] . ' ' . $row['firstName'] . ' ' . $row['lastName'] . '<br>';
-}
-
-die();
 $schema = new \Doctrine\DBAL\Schema\Schema();
 
+// TODO Place in own class
 //Person Table
     $personTable = $schema->createTable("Person");
     $personTable->addColumn("id", "integer", array("unsigned" => true, "autoincrement" => true));
@@ -94,11 +87,13 @@ $schema = new \Doctrine\DBAL\Schema\Schema();
 
 // TODO add profile image    $personTable->addColumn("profile_image", "object", array("length" => 1));
 
+// TODO Place in own class
 //Interest Table
     $interestTable = $schema->createTable("Interests");
     $interestTable->addColumn("name", "string", array("length" => 256));
     $interestTable->addColumn("category", "string", array("length" => 256));
 
+// TODO Place in own class
 // Event Table
     $eventTable = $schema->createTable("Events");
     $eventTable->addColumn("title", "string", array("length" => 256));
@@ -110,10 +105,12 @@ $schema = new \Doctrine\DBAL\Schema\Schema();
     $eventTable->addColumn("location", "string", array("length" => 256));
     $eventTable->addColumn("organiser", "string", array("length" => 256));
 
+// TODO Place in own class
 //Foo Table
     $fooTable = $schema->createTable("Foo");
     $fooTable->addColumn("title", "string", array("length" => 256));
 
+// TODO Place in own class
 //Location Table
     $locationTable = $schema->createTable("Location");
     $locationTable->addColumn("City", "string", array("length" => 256));
@@ -121,10 +118,12 @@ $schema = new \Doctrine\DBAL\Schema\Schema();
     $locationTable->addColumn("streetNumber", "integer", array("unsigned" => true));
     $locationTable->addColumn("zip code", "string", array("length" => 10));
 
+// TODO Place in own class
+// TODO Do not use the & in naming
 //Refugee/Volunteer Table
     $refugee_volunteerTable = $schema->createTable("refugee&volunteerTable");
     $refugee_volunteerTable->addColumn("refugee", "boolean");
     $refugee_volunteerTable->addColumn("volunteer", "boolean");
 
-    $platform = $conn->getDatabasePlatform();
-    $queries = $schema->toSql($platform);
+//    $platform = $conn->getDatabasePlatform();
+//    $queries = $schema->toSql($platform);
