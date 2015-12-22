@@ -20,10 +20,11 @@ class TranslationService
      */
     public function __construct()
     {
-        $this->translator = new Translator('en_EN');
-        $this->translator->setFallbackLocales(array('en'));
+        $this->translator = new Translator('nl_NL');
+        //$this->translator->setFallbackLocales(array('en'));
         $this->translator->addLoader('yaml', new YamlFileLoader());
         $this->translator->addResource('yaml','../../../../app/translation/messages.nl.yml', 'en_EN');
+        $this->translator->addResource('yaml','../../../../app/translation/messages.nl.yml', 'nl_NL');
     }
     public function getTranslation($word)
     {

@@ -47,20 +47,22 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 
 $container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
 
-$container->register('db', 'Frissr\Volunteer\Service\db);
-
 $config = new \Doctrine\DBAL\Configuration();
-//..
+
 $connectionParams = array(
     // When using mySQL
-//    'dbname' => 'mydb',
-//    'user' => 'user',
-//    'password' => 'secret',
-//    'host' => 'localhost',
-//    'driver' => 'pdo_mysql',
+    'dbname' => 'Frissr_demo',
+    'user' => 'root',
+    'password' => '',
+    'host' => '127.0.0.1',
+    'driver' => 'pdo_mysql',
+    'charset' => 'utf8',
 
     // When using sqlite
-    'url' => 'sqlite://db.sqlite'
+   // 'url' => 'sqlite://db.sqlite'
 );
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+
+
 $container->set('db', $conn);
