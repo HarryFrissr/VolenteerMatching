@@ -2,8 +2,17 @@
 
 namespace Frissr\FrontController;
 
+use ReflectionClass;
+use InvalidArgumentException;
+use Symfony\Component\DependencyInjection\ContainerBuilder;
+
 class FrontController implements FrontControllerInterface
 {
+    /**
+     * @var ContainerBuilder
+     */
+    protected $container;
+
     const DEFAULT_CONTROLLER = "IndexController";
     const DEFAULT_ACTION     = "index";
     
@@ -12,32 +21,20 @@ class FrontController implements FrontControllerInterface
     protected $params        = array();
     protected $basePath      = "src/";
     
-    public function __construct(array $options = array()) {
-        if (empty($options)) {
-           $this->parseUri();
-        }
-        else {
-            if (isset($options["controller"])) {
-                $this->setController($options["controller"]);
-            }
-            if (isset($options["action"])) {
-                $this->setAction($options["action"]);     
-            }
-            if (isset($options["params"])) {
-                $this->setParams($options["params"]);
-            }
-        }
+    public function __construct(ContainerBuilder $container) {
+        $this->container = $container;
+        $this->parseUri();
     }
     
     protected function parseUri() {
-        $path = trim(parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH), "/");
-        $path = preg_replace('/[^a-zA-Z0-9]/', "", $path);
-        if (strpos($path, $this->basePath) === 0) {
-            $path = substr($path, strlen($this->basePath));
-        }
-        @list($controller, $action, $params) = explode("/", $path, 3);
-        var_dump($controller);
-        var_dump($action);
+        reset($_GET);
+        $stack = explode('/', key($_GET));
+        $controller = array_shift($stack);
+        $controller = (!empty($controller) ? strtolower($controller) : 'index') . 'Controller';
+        $action = array_shift($stack);
+        $action = (!empty($action) ? strtolower($action) : 'index') . 'Action' ;
+        $params = $stack;
+
         if (isset($controller)) {
             $this->setController($controller);
         }
@@ -45,13 +42,15 @@ class FrontController implements FrontControllerInterface
             $this->setAction($action);
         }
         if (isset($params)) {
-            $this->setParams(explode("/", $params));
+            $this->setParams($stack);
         }
     }
     
     public function setController($controller) {
-        $controller = ucfirst(strtolower($controller)) . "Controller";
+        // TODO Remove hard-code namespace
+        $controller = 'Frissr\\Volunteer\\Controller\\' . ucfirst($controller);
         if (!class_exists($controller)) {
+            // TODO Geef een nettere foutmelding
             throw new InvalidArgumentException(
                 "The action controller '$controller' has not been defined.");
         }
@@ -62,6 +61,7 @@ class FrontController implements FrontControllerInterface
     public function setAction($action) {
         $reflector = new ReflectionClass($this->controller);
         if (!$reflector->hasMethod($action)) {
+            // TODO Geef een nettere foutmelding
             throw new InvalidArgumentException(
                 "The controller action '$action' has been not defined.");
         }
@@ -75,6 +75,6 @@ class FrontController implements FrontControllerInterface
     }
     
     public function run() {
-        call_user_func_array(array(new $this->controller, $this->action), $this->params);
+        return call_user_func_array(array(new $this->controller($this->container), $this->action), $this->params);
     }
 }

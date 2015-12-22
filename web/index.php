@@ -10,11 +10,16 @@ ini_set('display_errors', 1);
 // TODO - Scheid de Controller en de User Interface
 // TODO - Maak aparte Views aan en laad deze vanuit de app/views folder
 // TODO - Geef de parameters door aan de Views
+<<<<<<< HEAD
 // TODO - Maak een default layou
 
 require_once ('../vendor/autoload.php');
 require_once ('../app/config/services.php');
 
+=======
+// TODO - Maak een default layout aan
+require_once __DIR__ . './../vendor' . '/autoload.php';
+>>>>>>> 9349b1a7f34eb58e7ce29469a72376902fcfe490
 echo "Welkom op de Matching website voor Vluchtelingen en Vrijwilligers in Nederland";
 
 ?>
