@@ -19,6 +19,7 @@ require_once __DIR__ . './../app/config' . '/services.php';
 
 use Frissr\FrontController\FrontController;
 
+$container->setParameter('env', 'prod');
 $frontController = new FrontController($container);
 
 echo $frontController->run();

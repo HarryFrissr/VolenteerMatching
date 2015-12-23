@@ -10,7 +10,7 @@ namespace Frissr\Volunteer\Controller;
 
 use Frissr\Volunteer\Command\Fixture\loadUserFixture;
 
-class fixturesController extends Controller {
+class FixturesController extends Controller {
 
     public function indexAction() {
         return '<a href="app.php?fixtures/start">Load Fixtures</a>';
