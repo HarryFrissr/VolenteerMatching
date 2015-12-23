@@ -37,7 +37,7 @@ class MessageController extends Controller
         $this->chatpartner = Person::loadFromArray($person);
     }
 
-
+    //  render the chat page
     public function renderView()
     {
         // Get the list of messages in the active conversation TODO: PREPARED STATEMENTS?
@@ -61,12 +61,14 @@ class MessageController extends Controller
         echo $this->render('person/messages.html.php', $render_params);
     }
 
+    //  Send message content to the database with current chatpartner as receiver.
     public function messagePost($content) {
+        $query = $this->conn->prepare("INSERT INTO `messages` (`id`, `sender`, `receiver`, `time`, `content`) VALUES (NULL, ?, ?, CURRENT_TIMESTAMP, ?);");
 
-        $query = $this->conn->prepare("INSERT INTO `messages` (`id`, `sender`, `receiver`, `time`, `content`) VALUES (NULL, '1', '2', CURRENT_TIMESTAMP, ?);");
-        $query->bindValue(1, $content, PDO::PARAM_STR);
+        $query->bindValue(1, $this->self->getId(), PDO::PARAM_INT);
+        $query->bindValue(2, $this->chatpartner->getId(), PDO::PARAM_INT);
+        $query->bindValue(3, $content, PDO::PARAM_STR);
+
         $query->execute();
-
-        // send msg to db
     }
 }

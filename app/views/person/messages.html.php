@@ -10,7 +10,7 @@
 ?>
 <h1>Messages</h1>
 
-<form action="messages.php" method="post">
+<form action="messages.php?chatid=<?php echo $chatpartner->getId() ?>" method="post">
     <h3>Available chats</h3>
         <?php foreach ($userlist as $user): ?>
             <li><a href="?chatid=<?php echo $user['id'] ?>"><?php echo $user['name'] ?></a></li>
