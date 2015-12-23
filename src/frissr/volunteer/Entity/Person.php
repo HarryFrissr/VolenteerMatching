@@ -17,19 +17,33 @@ class Person {
     protected $id;
     protected $firstName;
     protected $lastName;
+    protected $name;
     protected $dateOfBirth;
     protected $email;
     protected $password;
+
     // TODO Add profile picture attribute
 
     // TODO id hoort niet in de constructor. Je weet het id van de klasse niet op het moment van aanmaken.
     // TODO Haal Id uit de constructor
     // TODO Maak getter/setter!! voor id
     // TODO Maak een Entity base klasse met daarin - onder andere - id
-    public function __construct($id, $firstName = null, $lastName = null, $dateOfBirth = null, $email = null, $password = null) {
-        $this->id = $id;
+
+    public static function loadFromArray($array)
+    {
+        $person = new Person();
+
+        $person-> id   = (int)$array['id'];
+        $person-> name = $array['name'];
+        $person-> email= $array['email'];
+
+        return $person;
+    }
+
+    public function __construct($firstName = null, $lastName = null, $dateOfBirth = null, $email = null, $password = null) {
         $this->firstName = $firstName;
         $this->lastName = $lastName;
+        $this->name     = $firstName . $lastName;
         $this->dateOfBirth = $dateOfBirth;
         $this->email = $email;
         $this->password = $password;
@@ -40,8 +54,14 @@ class Person {
         $this->lastName = $lastname;
     }
 
+    //  return available name, this is the firstname appended to the lastname if available, otherwise it returns the
+    // "name" variable
     public function getName() {
-        return trim($this->firstName . ' ' . $this->lastName);
+        if (isset($this->firstName) && isset($this->lastName)) {
+            return trim($this->firstName . ' ' . $this->lastName);
+        } else {
+            return $this->name;
+        }
     }
     /**
      * @return mixed

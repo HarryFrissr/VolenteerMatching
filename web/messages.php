@@ -12,8 +12,13 @@ require_once __DIR__ . './../app/config' . '/services.php';
 use Frissr\Volunteer\Controller\MessageController;
 
 
+if (isset($_GET['chatid'])){
+    $chatPartnerId = $_GET['chatid'];
+} else {
+    $chatPartnerId = 0;
+}
 
-$controller = new MessageController($container);
+$controller = new MessageController($container, $chatPartnerId);
 
 
 if (isset($_POST['message_content'])){
@@ -21,5 +26,5 @@ if (isset($_POST['message_content'])){
     $controller->messagePost($message_content);
 }
 
-$controller->messageView();
+$controller->renderView();
 
