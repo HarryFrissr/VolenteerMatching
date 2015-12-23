@@ -15,6 +15,6 @@ class LanguageServiceTest extends PHPUnit_Framework_TestCase
         $this->assertTrue(false);
 
         $service = new TranslationService();
-        $this->assertEquals('We', 'We');
+        $this->assertEquals('Wij', 'We');
     }
 }

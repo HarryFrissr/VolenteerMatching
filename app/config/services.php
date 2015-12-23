@@ -72,7 +72,6 @@ $container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeS
 $container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
 
-<<<<<<< HEAD
 $container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
 
 $config = new \Doctrine\DBAL\Configuration();
@@ -94,7 +93,7 @@ $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
 
 
 $container->set('db', $conn);
-=======
+
 
 $schema = new \Doctrine\DBAL\Schema\Schema();
 
@@ -150,4 +149,4 @@ $schema = new \Doctrine\DBAL\Schema\Schema();
 
 //    $platform = $conn->getDatabasePlatform();
 //    $queries = $schema->toSql($platform);
->>>>>>> 9349b1a7f34eb58e7ce29469a72376902fcfe490
+
