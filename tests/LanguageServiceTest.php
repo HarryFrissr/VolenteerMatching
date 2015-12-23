@@ -1,5 +1,11 @@
 <?php
 
+ini_set("display_errors", "1");
+error_reporting(E_ALL);
+
+//require_once('../vendor/autoload.php');
+//require_once('../app/translation/messages.nl.yml');
+
 /**
  * Created by PhpStorm.
  * User: Hiltje
@@ -12,9 +18,13 @@ use Faker\Factory;
 class LanguageServiceTest extends PHPUnit_Framework_TestCase
 {
     public function testiets(){
-        $this->assertTrue(false);
+       // $this->assertTrue(false);
 
         $service = new TranslationService();
-        $this->assertEquals('Wij', 'We');
+        $result = $service->getTranslation('We');
+        $this->assertEquals('Wij', $result);
+
     }
 }
+
+

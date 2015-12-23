@@ -13,7 +13,7 @@ class IndexController extends Controller {
 
     public function indexAction() {
         $debug = $this->getDebugInfo();
-        return $this->render('index\index.html.php', array('debug' => $debug));
+        return $this->render('index/index.html.php', array('debug' => $debug));
     }
 
     /**
@@ -23,7 +23,7 @@ class IndexController extends Controller {
     {
         $debug = null;
         if ($this->container->getParameter('env') != 'prod') {
-            $debug = $this->render('index\debug.html.php', array('env' => $this->container->getParameter('env')));
+            $debug = $this->render('index/debug.html.php', array('env' => $this->container->getParameter('env')));
             return $debug;
         }
         return $debug;
