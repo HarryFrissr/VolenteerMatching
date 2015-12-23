@@ -8,28 +8,13 @@
 
 namespace Frissr\Volunteer\Command\Migration;
 
-use Doctrine\DBAL\Connection;
-
-class migrateTable0001 {
-
-    /**
-     * @var \Doctrine\DBAL\Connection
-     */
-    private $conn;
-
-    public function __construct(Connection $conn ) {
-        $this->conn = $conn;
-    }
-
-    public function execute() {
-        $this->conn->query($this->getSQL());
-    }
+class migrateTable0001 extends BaseMigrationTable {
 
     public function getTitle() {
         return 'Create Users Table';
     }
 
-    private function getSQL() {
+    protected function getSQL() {
         return 'CREATE TABLE Users (' .
         'id int NOT NULL AUTO_INCREMENT PRIMARY KEY,' .
         'name varchar(255),' .

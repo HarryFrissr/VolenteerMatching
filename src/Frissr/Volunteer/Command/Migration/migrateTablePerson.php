@@ -7,28 +7,14 @@
  */
 
 namespace Frissr\Volunteer\Command\Migration;
-use Doctrine\DBAL\Connection;
 
-class migrateTablePerson {
-    /**
-     * @var \Doctrine\DBAL\Connection
-     */
-
-    private $conn;
-
-    public function __construct(Connection $conn ) {
-        $this->conn = $conn;
-    }
-
-    public function execute() {
-        $this->conn->query($this->getSQL());
-    }
+class migrateTablePerson extends BaseMigrationTable {
 
     public function getTitle() {
         return 'Create Person Table';
     }
 // Id en email zijn unique zodat men niet onbeperkt account kan aanmaken met één email
-    private function getSQL() {
+    protected function getSQL() {
         return 'CREATE TABLE Person (' .
         'id int NOT NULL AUTO_INCREMENT PRIMARY KEY,' .
         'firstName varchar(255),' .
