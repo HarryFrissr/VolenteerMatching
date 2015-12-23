@@ -10,6 +10,7 @@ namespace Frissr\Volunteer\Controller;
 
 use Frissr\Volunteer\Command\Migration\migrateTable0001;
 use Frissr\Volunteer\Command\Migration\migrateTable0002;
+use Frissr\Volunteer\Command\Migration\migrateTablePerson;
 
 class migrateDatabaseController extends Controller {
 
@@ -17,13 +18,18 @@ class migrateDatabaseController extends Controller {
         return '<a href="app.php?migrateDatabase/start">Start Migrate</a>';
     }
 
+    /**
+     *
+     */
     public function startAction() {
         $migrations[] = new migrateTable0001($this->get('db'));
         $migrations[] = new migrateTable0002($this->get('db'));
+        $migrations[] = new migrateTablePerson($this->get('db'));
 
         echo 'Start migration: <br>';
         foreach ($migrations as $migration) {
             echo $migration->getTitle() . ' <br>';
+
             $migration->execute();
         }
         echo 'Ready <br>';

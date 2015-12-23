@@ -19,9 +19,15 @@ class Event {
     protected $organiser;
     protected $location;
 
-    public function __construct($title , $date=0) {
+    public function __construct($title ,$description, $date=0,$time,$maxNumberOfParticipants,$numberOfParticipants,$organiser,$location) {
         $this->title = $title;
+        $this->description = $description;
         $this->date = $date;
+        $this->time = $time;
+        $this->maxNumberOfParticipants = $maxNumberOfParticipants;
+        $this->numberOfParticipants = $numberOfParticipants;
+        $this->organiser = $organiser;
+        $this->location = $location;
     }
 
     /**

@@ -9,10 +9,10 @@
 namespace Frissr\Volunteer\Controller;
 
 
-class PersonController {
+class PersonController extends Controller{
 
     public function indexAction() {
-        // TODO Do nothing
+
         return 'I am a Controller. Called by the front Controller';
     }
 } 

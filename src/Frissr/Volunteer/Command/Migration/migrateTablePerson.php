@@ -7,9 +7,9 @@
  */
 
 namespace Frissr\Volunteer\Command\Migration;
+use Doctrine\DBAL\Connection;
 
-
-class migrateTable0003 {
+class migrateTablePerson {
     /**
      * @var \Doctrine\DBAL\Connection
      */
@@ -33,12 +33,12 @@ class migrateTable0003 {
         'id int NOT NULL AUTO_INCREMENT PRIMARY KEY,' .
         'firstName varchar(255),' .
         'lastName varchar(255),' .
-        'dateOfBirth date(8),' .
+        'dateOfBirth date,' .
         'email varchar(255) ,' .
         'password varchar(8) ,' .
         'active boolean ,' .
         'locked boolean ,' .
-        'CONSTRAINT [uc_Person] UNIQUE(id, email)' .
+        'CONSTRAINT uc_Person UNIQUE(id, email)' .
         ');';
     }
 
