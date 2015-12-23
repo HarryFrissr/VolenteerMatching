@@ -14,9 +14,11 @@ require_once __DIR__ . './../app/config' . '/services.php';
 
 <h2>Get services</h2>
 
+
 <?php
 
 $foo = $container->get('foo');
 
 echo $foo;
+?>
 
