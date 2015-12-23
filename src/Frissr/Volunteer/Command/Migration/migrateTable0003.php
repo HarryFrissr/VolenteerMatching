@@ -31,7 +31,7 @@ class migrateTable0003 {
 
     private function getSQl(){
         return 'CREATE TABLE Event(
-        id INT(11) NOT NULL AUTO_INCREMENT ,
+        id INT(11) NOT NULL ,
         name VARCHAR(128) NOT NULL ,
         organiser VARCHAR(128) NOT NULL ,
         location VARCHAR(128) NOT NULL , PRIMARY KEY (`id`)

@@ -78,19 +78,17 @@ $config = new \Doctrine\DBAL\Configuration();
 
 $connectionParams = array(
     // When using mySQL
-    'dbname' => 'Frissr_demo',
-    'user' => 'root',
-    'password' => '',
-    'host' => '127.0.0.1',
-    'driver' => 'pdo_mysql',
-    'charset' => 'utf8',
+//    'dbname' => 'Frissr_demo',
+//    'user' => 'root',
+//    'password' => '',
+//    'host' => '127.0.0.1',
+//    'driver' => 'pdo_mysql',
+//    'charset' => 'utf8',
 
     // When using sqlite
-   // 'url' => 'sqlite://db.sqlite'
+   'url' => 'sqlite://db.sqlite'
 );
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-
-
 
 $container->set('db', $conn);
 

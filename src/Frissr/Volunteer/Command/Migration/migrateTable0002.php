@@ -31,7 +31,7 @@ class migrateTable0002 {
 
     private function getSQL() {
         return 'CREATE TABLE Matches (' .
-            'id int NOT NULL AUTO_INCREMENT PRIMARY KEY,' .
+            'id int NOT NULL PRIMARY KEY,' .
             'refugee int,' .
             'volunteer int,' .
             'active boolean,' .

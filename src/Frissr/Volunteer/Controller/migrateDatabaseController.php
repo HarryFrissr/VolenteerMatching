@@ -10,11 +10,12 @@ namespace Frissr\Volunteer\Controller;
 
 use Frissr\Volunteer\Command\Migration\migrateTable0001;
 use Frissr\Volunteer\Command\Migration\migrateTable0002;
+use Frissr\Volunteer\Command\Migration\migrateTable0003;
 
 class migrateDatabaseController extends Controller {
 
     public function indexAction() {
-        return '<a href="app.php?migrateDatabase/start">Start Migrate</a>';
+        return '<h2>acties</h2><a href="app.php?migrateDatabase/start">Start Migrate</a>';
     }
 
     public function startAction() {

@@ -31,7 +31,7 @@ class migrateTable0001 {
 
     private function getSQL() {
         return 'CREATE TABLE Users (' .
-            'id int NOT NULL AUTO_INCREMENT PRIMARY KEY,' .
+            'id int NOT NULL PRIMARY KEY,' .
             'name varchar(255),' .
             'email varchar(255),' .
             'active boolean,' .
