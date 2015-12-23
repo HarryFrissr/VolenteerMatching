@@ -72,6 +72,26 @@ $container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeS
 $container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
 
+$container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
+
+$config = new \Doctrine\DBAL\Configuration();
+
+$connectionParams = array(
+    // When using mySQL
+//    'dbname' => 'Frissr_demo',
+//    'user' => 'root',
+//    'password' => '',
+//    'host' => '127.0.0.1',
+//    'driver' => 'pdo_mysql',
+//    'charset' => 'utf8',
+
+    // When using sqlite
+   'url' => 'sqlite://db.sqlite'
+);
+$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+$container->set('db', $conn);
+
 
 $schema = new \Doctrine\DBAL\Schema\Schema();
 
@@ -127,3 +147,4 @@ $schema = new \Doctrine\DBAL\Schema\Schema();
 
 //    $platform = $conn->getDatabasePlatform();
 //    $queries = $schema->toSql($platform);
+
