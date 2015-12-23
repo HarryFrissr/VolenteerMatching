@@ -22,12 +22,12 @@ $testTable= "CREATE TABLE Interests
 
  ";
 
-//$testInsert = "
-//INSERT INTO Interests
-//VALUES (1,'Dog Test','null','null');";
+$testInsert = "
+INSERT INTO Interests
+VALUES (1,'Dog Test','null','null');";
 
 //$conn->query($testTable);
 
 $selectStatement = "SELECT naam from interests;";
-$result=$conn->query($selectStatement);
+$conn->query($testInsert);
 

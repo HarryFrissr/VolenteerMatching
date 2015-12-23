@@ -38,4 +38,4 @@ class migrateTable0002 {
             'updated datetime' .
         ');';
     }
-} 
+}
