@@ -1,0 +1,12 @@
+CREATE TABLE Interests
+ (
+    id INT,
+    naam VARCHART(55),
+    category VARCHART(55),
+    decsription TEXT(1000)
+
+
+ );
+
+ INSERT INTO Interests
+ VALUES (,"Voetbal"
