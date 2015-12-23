@@ -19,7 +19,7 @@ class FixturesController extends Controller {
 
     public function startAction() {
         $fixtures[] = new loadUserFixture($this->get('db'));
-//        $fixtures[] = new loadInterestFixture($this->get('db'));
+        $fixtures[] = new loadInterestFixture($this->get('db'));
 
         echo 'Load fixtures: <br>';
         foreach ($fixtures as $fixture) {
