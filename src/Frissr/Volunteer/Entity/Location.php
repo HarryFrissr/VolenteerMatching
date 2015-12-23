@@ -6,7 +6,7 @@
  * Time: 19:26
  */
 
-namespace Frissr\Volenteer\Entity;
+namespace Frissr\Volunteer\Entity;
 
 
 class Location

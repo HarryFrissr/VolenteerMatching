@@ -6,7 +6,7 @@
  * Time: 20:46
  */
 
-namespace Frissr\Volenteer\Controller;
+namespace Frissr\Volunteer\Controller;
 
 
 class MeetRefugeeController {
