@@ -23,7 +23,12 @@ class IndexController extends Controller {
     {
         $debug = null;
         if ($this->container->getParameter('env') != 'prod') {
-            $debug = $this->render('index/debug.html.php', array('env' => $this->container->getParameter('env')));
+            $debug = $this->render('index/_debug.html.php',
+                array(
+                    'env' => $this->container->getParameter('env'),
+                    'version' => $this->container->getParameter('version')
+                )
+            );
             return $debug;
         }
         return $debug;

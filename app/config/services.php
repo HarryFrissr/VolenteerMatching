@@ -26,7 +26,15 @@ use Symfony\Component\Templating\Helper\SlotsHelper;
 /**
  * De algemene Container. Zet hierin je services
  */
+const VERSION = '0.8.0';
+const TITLE   = 'Volunteer Matching';
+const FOO = 'Foo';
+
 $container = new ContainerBuilder();
+$container->setParameter('version', VERSION);
+$container->setParameter('title', TITLE);
+$container->setParameter('foo', FOO);
+$container->setParameter('env', 'prod');
 
 $config = new \Doctrine\DBAL\Configuration();
 $connectionParams = array(
