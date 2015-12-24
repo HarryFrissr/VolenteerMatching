@@ -11,6 +11,7 @@ namespace Frissr\Volunteer\Controller;
 use Frissr\Volunteer\Command\Migration\migrateTable0001;
 use Frissr\Volunteer\Command\Migration\migrateTable0002;
 use Frissr\Volunteer\Command\Migration\migrateTable0003;
+use Exception;
 
 class migrateDatabaseController extends Controller {
 
@@ -18,18 +19,38 @@ class migrateDatabaseController extends Controller {
         return '<h2>acties</h2><a href="app.php?migrateDatabase/start">Start Migrate</a>';
     }
 
-    public function startAction() {
-        // Load them from a resource
+    public function getMigrations(){
         $migrations[] = new migrateTable0001($this->get('db'));
         $migrations[] = new migrateTable0002($this->get('db'));
         $migrations[] = new migrateTable0003($this->get('db'));
+
+        return $migrations;
+    }
+
+    public function startAction() {
+        $migrations = $this->getMigrations();
 
         echo 'Start migration: <br>';
         foreach ($migrations as $migration) {
             // TODO Ignore migrations already done
             echo $migration->getTitle() . ' <br>';
-            $migration->execute();
+
+            try {
+                $migration->execute();
+            } catch (Exception $e) {
+                echo '2Caught exception: ',  $e->getMessage(), "\n";
+            }
         }
         echo 'Ready <br>';
+    }
+
+
+    public function statusAction() {
+        $migrations = $this->getMigrations();
+
+        echo 'List of migrations: <br>';
+        foreach ($migrations as $migration) {
+            echo $migration->getTitle() . ' <br>';
+        }
     }
 } 

@@ -62,7 +62,7 @@ $container->set('session' , $session);
 
 // Registeer een service - bij naam
 $container->register('foo', 'Frissr\Volunteer\Entity\Foo');
-$container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeService($faker));
+$container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeService($container->get('faker')));
 
 $container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
@@ -70,7 +70,7 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 $container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
 
 
-$container->set('register', new Frissr\Volunteer\Service\RegisterAccountService($conn));
+$container->set('register', new Frissr\Volunteer\Service\RegisterAccountService($container->get('db')));
 
 
 $schema = new Doctrine\DBAL\Schema\Schema();

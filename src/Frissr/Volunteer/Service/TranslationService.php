@@ -16,17 +16,20 @@ class TranslationService
     /**
      * TranslationService constructor.
      */
-    public function __construct()
+    public function __construct($locale = 'nl')
     {
-        $this->translator = new Translator('nl_NL');
-        //$this->translator->setFallbackLocales(array('nl'));
+        $this->translator = new Translator($locale);
+        $this->translator->setFallbackLocales(array('en'));
+        $this->translator->setLocale($locale);
         $this->translator->addLoader('yaml', new YamlFileLoader());
-        $this->translator->addResource('yaml','../../../../app/translation/messages.nl.yml', 'nl_NL');
-
+        $this->translator->addResource('yaml', __DIR__ . '\..\..\..\..\app\translation\messages.nl.yml', 'nl');
+        $this->translator->addResource('yaml', __DIR__ . '\..\..\..\..\app\translation\messages.fr.yml', 'fr');
+        $this->translator->addResource('yaml', __DIR__ . '\..\..\..\..\app\translation\messages.en.yml', 'en');
     }
-    public function getTranslation($word)
+
+    public function getTranslation($word, array $parameters = array(), $domain = null, $locale = null)
     {
-        return $this->translator->trans($word);
+        return $this->translator->trans($word, $parameters, $domain, $locale);
     }
 }
 

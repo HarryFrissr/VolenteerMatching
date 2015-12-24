@@ -17,7 +17,7 @@ require_once ('../app/config/services.php');
 
 use Frissr\Volunteer\Service\TranslationService;
 
-$ww = new TranslationService();
+$ww = new TranslationService('en');
 echo $ww->getTranslation('We');
 echo $ww->getTranslation('Appel');
 
