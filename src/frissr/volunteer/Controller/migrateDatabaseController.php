@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Harry van der Valk - The Hague Intelligence Group
- * Date: 21-12-15
- * Time: 14:00
- */
 
 namespace Frissr\Volunteer\Controller;
 
@@ -17,7 +11,7 @@ use Frissr\Volunteer\Command\Migration\BaseMigrationTable;
 use Frissr\Volunteer\Command\Migration\migrateTable122320151845;
 use Exception;
 
-class migrateDatabaseController extends Controller {
+class MigrateDatabaseController extends Controller {
 
     public function indexAction() {
         return '<h2>acties</h2><a href="?migrateDatabase/start">Start Migrate</a>';
