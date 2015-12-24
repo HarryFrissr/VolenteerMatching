@@ -8,9 +8,12 @@
 
 namespace Frissr\Volunteer\Controller;
 
+use Frissr\Volunteer\Command\Fixture\loadInterestFixture;
 use Frissr\Volunteer\Command\Fixture\loadUserFixture;
 use Frissr\Volunteer\Command\Fixture\loadEventFixture;
 use Frissr\Volunteer\Command\Fixture\loadPersonFixture;
+use Frissr\Volunteer\Command\Fixture\BaseFixture;
+
 class FixturesController extends Controller {
 
     public function indexAction() {
@@ -22,8 +25,12 @@ class FixturesController extends Controller {
         $fixtures[] = new loadUserFixture($this->get('db'));
         $fixtures[] = new loadPersonFixture($this->get('db'));
         $fixtures[] = new loadEventFixture($this->get('db'));
+        $fixtures[] = new loadInterestFixture($this->get('db'));
 
         echo 'Load fixtures: <br>';
+        /**
+         * @var $fixture BaseFixture
+         */
         foreach ($fixtures as $fixture) {
             echo $fixture->getTitle() . ' <br>';
             $fixture->execute();

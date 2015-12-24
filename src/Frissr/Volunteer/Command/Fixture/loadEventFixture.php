@@ -2,7 +2,7 @@
 
 namespace Frissr\Volunteer\Command\Fixture;
 
-class loadEventFixture extends BaseMigration
+class loadEventFixture extends BaseFixture
 {
     public function getTitle()
     {

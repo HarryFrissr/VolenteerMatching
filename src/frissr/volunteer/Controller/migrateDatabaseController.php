@@ -14,6 +14,7 @@ use Frissr\Volunteer\Command\Migration\migrateTableEvent;
 use Frissr\Volunteer\Command\Migration\migrateTableMessages;
 use Frissr\Volunteer\Command\Migration\migrateTablePerson;
 use Frissr\Volunteer\Command\Migration\BaseMigrationTable;
+use Frissr\Volunteer\Command\Migration\migrateTable122320151845;
 use Exception;
 
 class migrateDatabaseController extends Controller {
@@ -29,6 +30,7 @@ class migrateDatabaseController extends Controller {
         $migrations[] = new migrateTableEvent($this->get('db'));
         $migrations[] = new migrateTableMessages($this->get('db'));
         $migrations[] = new migrateTablePerson($this->get('db'));
+        $migrations[] = new migrateTable122320151845($this->get('db'));
 
         return $migrations;
     }

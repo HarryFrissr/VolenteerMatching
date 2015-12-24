@@ -23,4 +23,4 @@ class migrateTable0002 extends BaseMigrationTable {
             updated datetime
         );';
     }
-} 
+}

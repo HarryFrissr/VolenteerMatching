@@ -8,7 +8,7 @@
 
 namespace Frissr\Volunteer\Command\Fixture;
 
-class loadPersonFixture extends BaseMigration
+class loadPersonFixture extends BaseFixture
 {
     public function getTitle()
     {

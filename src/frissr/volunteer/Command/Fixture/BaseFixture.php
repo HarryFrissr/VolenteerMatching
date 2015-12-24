@@ -10,7 +10,7 @@ namespace Frissr\Volunteer\Command\Fixture;
 
 use Doctrine\DBAL\Connection;
 
-abstract class BaseMigration {
+abstract class BaseFixture {
     /**
      * @var \Doctrine\DBAL\Connection
      */
