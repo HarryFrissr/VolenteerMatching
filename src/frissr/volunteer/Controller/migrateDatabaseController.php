@@ -13,6 +13,7 @@ use Frissr\Volunteer\Command\Migration\migrateTable0002;
 use Frissr\Volunteer\Command\Migration\migrateTableEvent;
 use Frissr\Volunteer\Command\Migration\migrateTableMessages;
 use Frissr\Volunteer\Command\Migration\migrateTablePerson;
+use Frissr\Volunteer\Command\Migration\BaseMigrationTable;
 use Exception;
 
 class migrateDatabaseController extends Controller {
@@ -36,6 +37,9 @@ class migrateDatabaseController extends Controller {
         $migrations = $this->getMigrations();
 
         echo 'Start migration: <br>';
+        /**
+         * @var $migration BaseMigrationTable
+         */
         foreach ($migrations as $migration) {
             // TODO Ignore migrations already done
             echo $migration->getTitle() . ' <br>';
@@ -54,6 +58,9 @@ class migrateDatabaseController extends Controller {
         $migrations = $this->getMigrations();
 
         echo 'List of migrations: <br>';
+        /**
+         * @var $migration BaseMigrationTable
+         */
         foreach ($migrations as $migration) {
             echo $migration->getTitle() . ' <br>';
         }
