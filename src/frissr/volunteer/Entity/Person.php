@@ -40,6 +40,13 @@ class Person {
         $this->lastName = $lastname;
     }
 
+    public static function create() {
+        // create account
+        // database
+        // mailing
+        //
+    }
+
     public function getName() {
         return trim($this->firstName . ' ' . $this->lastName);
     }
@@ -112,25 +119,24 @@ class Person {
      */
     public function getEmail()
     {
-<<<<<<< HEAD
-        return $this->profilePicture;
-=======
         return $this->email;
->>>>>>> 9349b1a7f34eb58e7ce29469a72376902fcfe490
+    }
+
+    public function getProfilePicture() {
+        return null;
     }
 
     /**
      * @param null $email
      */
-<<<<<<< HEAD
     public function setProfilePicture($profilePicture)
     {
         $this->profilePicture = $profilePicture;
-=======
+    }
+
     public function setEmail($email)
     {
         $this->email = $email;
->>>>>>> 9349b1a7f34eb58e7ce29469a72376902fcfe490
     }
 
     /**

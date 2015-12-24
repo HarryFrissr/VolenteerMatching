@@ -11,4 +11,7 @@ namespace Frissr\Volunteer\Command\Migration;
 
 class MigrationTable0003 {
 
+    public function getSQL() {
+        // TODO alter add Password
+    }
 } 

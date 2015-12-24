@@ -11,4 +11,20 @@ namespace Frissr\Volunteer\Entity;
 
 class PersonRepository {
 
+
+    public function findAll() {
+
+    }
+
+    public function find($id) {
+
+        // TODO Afmaken
+        $sql = "SELECT * FROM `users` WHERE `id` = $id";
+
+
+//        array();
+
+//        $person = Person::create();
+    }
+
 } 

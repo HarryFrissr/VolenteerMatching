@@ -6,8 +6,6 @@
  * Time: 17:17
  */
 
-//require_once('../../../../vendor/autoload.php');
-
 use Symfony\Component\Translation\Loader\YamlFileLoader;
 use Symfony\Component\Translation\Translator;
 
@@ -31,11 +29,6 @@ class TranslationService
         return $this->translator->trans($word);
     }
 }
-
-//$ww = new TranslationService();
-//echo $ww->getTranslation('We');
-
-
 
 
 

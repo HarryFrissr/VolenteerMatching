@@ -12,6 +12,7 @@ use Faker\Factory;
 use Symfony\Component\Templating\PhpEngine;
 use Symfony\Component\Templating\TemplateNameParser;
 use Symfony\Component\Templating\Loader\FilesystemLoader;
+use Symfony\Component\Templating\Helper\SlotsHelper;
 
 /**
  * A container is just the place to put object instances. You can call the instances - services - from the container by
@@ -41,7 +42,9 @@ $loader = new FilesystemLoader(__DIR__.'/../views/%name%');
 $session = new Symfony\Component\HttpFoundation\Session\Session();
 $session->start();
 
+
 $templating = new PhpEngine(new TemplateNameParser(), $loader);
+$templating->set(new SlotsHelper());
 
 $faker = Factory::create();
 
@@ -74,6 +77,7 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 
 $container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
 
+
 $config = new \Doctrine\DBAL\Configuration();
 
 $connectionParams = array(
@@ -89,6 +93,8 @@ $connectionParams = array(
    // 'url' => 'sqlite://db.sqlite'
 );
 $conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+
+$container->set('register', new Frissr\Volunteer\Service\RegisterAccountService($conn));
 
 
 

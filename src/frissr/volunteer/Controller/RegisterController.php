@@ -42,6 +42,9 @@ class RegisterController extends Controller {
         $person = new Person($name);
         $person->setEmail($email);
 
+        $service = $this->get('register');
+        $service->execute($person);
+
         // TODO Breng de gebruiker op de hoogte van zijn inschrijving
         // TODO Mail de beheerder dat er een inschrijving is
         // Verwerk data

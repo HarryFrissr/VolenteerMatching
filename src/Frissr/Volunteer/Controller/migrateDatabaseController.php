@@ -18,11 +18,13 @@ class migrateDatabaseController extends Controller {
     }
 
     public function startAction() {
+        // Load them from a resource
         $migrations[] = new migrateTable0001($this->get('db'));
         $migrations[] = new migrateTable0002($this->get('db'));
 
         echo 'Start migration: <br>';
         foreach ($migrations as $migration) {
+            // TODO Ignore migrations already done
             echo $migration->getTitle() . ' <br>';
             $migration->execute();
         }
