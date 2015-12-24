@@ -73,6 +73,27 @@ $container->register('message_service', 'Frissr\Volunteer\Service\MessageService
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
 
 
+// DBAL service
+
+//use Doctrine\Common\ClassLoader;
+//require '../vendor/doctrine/common/lib/Doctrine/Common';
+//$classloader = new ClassLoader('Doctrine', './Doctrine/doctrine-dbal');
+//$classloader->register();
+
+$config = new \Doctrine\DBAL\Configuration();
+//..
+$connectionParams = array(
+    'dbname' => 'frissr_demo',
+    'user' => 'root',
+    'password' => '',
+    'host' => 'localhost:3306',
+    'driver' => 'pdo_mysql',
+);
+
+
+$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+$container->set('db', $conn);
+
 $schema = new \Doctrine\DBAL\Schema\Schema();
 
 // TODO Place in own class
