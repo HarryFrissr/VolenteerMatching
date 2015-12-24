@@ -25,10 +25,10 @@
         echo $body;
         ?>
         <p>
-        Wij van Volenteer Matching hebben één doel:
+        Wij van Volunteer Matching hebben één doel:
         Wij matchen Vluchtelingen met Vrijwliigers in jouw Buurt.
 
-        Wij van Volenteer Matching hebben een missie:
+        Wij van Volunteer Matching hebben een missie:
         Wij willen aan elke Vluchteling één of meerdere Vrijwillegers koppelen om het inburgeren te versnellen.
 
         De Vluchtelingen hebben jullie hulp hard nodig. Schrijf je in en doe mee. </p>

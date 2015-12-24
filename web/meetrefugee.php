@@ -11,7 +11,7 @@
 // TODO Weer die autoload, vind een oplossing om deze alleen in bijvoorbeeld de index.php aan te roepen
 require_once __DIR__ . './../vendor' . '/autoload.php';
 
-use Frissr\Volenteer\Controller\MeetRefugeeController;
+use Frissr\Volunteer\Controller\MeetRefugeeController;
 
 
 $controller = new MeetRefugeeController();
