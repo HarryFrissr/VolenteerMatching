@@ -10,17 +10,11 @@ namespace Frissr\Volunteer\Command;
 
 use Doctrine\DBAL\Connection;
 
-class clearDatabaseCommand {
-    /**
-     * @var \Doctrine\DBAL\Connection
-     */
-    private $conn;
+class clearDatabaseCommand extends BaseCommand {
 
-    public function __construct(Connection $conn ) {
-        $this->conn = $conn;
-    }
 
     public function execute() {
+        $this->conn->query('delete from events');
         $this->conn->query('delete from matches');
         $this->conn->query('delete from users where id > 1');
     }

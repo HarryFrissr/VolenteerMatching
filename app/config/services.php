@@ -23,6 +23,11 @@ use Symfony\Component\Templating\Helper\SlotsHelper;
  *   echo $foo;
  */
 
+/**
+ * De algemene Container. Zet hierin je services
+ */
+$container = new ContainerBuilder();
+
 $config = new \Doctrine\DBAL\Configuration();
 $connectionParams = array(
     'dbname' => 'frissr_demo',
@@ -32,40 +37,27 @@ $connectionParams = array(
     'port' => 3306,
     'charset' => 'utf8',
     'driver' => 'pdo_mysql',
+
+    // When using sqlite
+    // 'url' => 'sqlite://db.sqlite'
 );
 $db = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+$container->set('db', $db);
 
-$container = new ContainerBuilder();
-
-$loader = new FilesystemLoader(__DIR__.'/../views/%name%');
 
 $session = new Symfony\Component\HttpFoundation\Session\Session();
 $session->start();
 
-
+// Templating
+$loader = new FilesystemLoader(__DIR__.'/../views/%name%');
 $templating = new PhpEngine(new TemplateNameParser(), $loader);
 $templating->set(new SlotsHelper());
-
-$faker = Factory::create();
-
 $container->set('templating', $templating);
 
 // Zet een service - bij instantie
 
-$container->set('faker', $faker);
+$container->set('faker', Factory::create());
 $container->set('session' , $session);
-$container->set('db',$db);
-
-$schema = new Doctrine\DBAL\Schema\Schema();
-$usersTable = $schema->createTable("Users");
-
-$usersTable->addColumn("id", "integer", array("unsigned" => true));
-$usersTable->addColumn("first_name", "string", array("length" => 64));
-$usersTable->addColumn("last_name", "string", array("length" => 64));
-$usersTable->addColumn("email", "string", array("length" => 256));
-$usersTable->addColumn("website", "string", array("length" => 256));
-
-$usersTable->setPrimaryKey(array("id"));
 
 
 // Registeer een service - bij naam
@@ -78,30 +70,19 @@ $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessa
 $container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
 
 
-$config = new \Doctrine\DBAL\Configuration();
-
-$connectionParams = array(
-    // When using mySQL
-    'dbname' => 'Frissr_demo',
-    'user' => 'root',
-    'password' => '',
-    'host' => '127.0.0.1',
-    'driver' => 'pdo_mysql',
-    'charset' => 'utf8',
-
-    // When using sqlite
-   // 'url' => 'sqlite://db.sqlite'
-);
-$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-
 $container->set('register', new Frissr\Volunteer\Service\RegisterAccountService($conn));
 
 
+$schema = new Doctrine\DBAL\Schema\Schema();
+$usersTable = $schema->createTable("Users");
 
-$container->set('db', $conn);
+$usersTable->addColumn("id", "integer", array("unsigned" => true));
+$usersTable->addColumn("first_name", "string", array("length" => 64));
+$usersTable->addColumn("last_name", "string", array("length" => 64));
+$usersTable->addColumn("email", "string", array("length" => 256));
+$usersTable->addColumn("website", "string", array("length" => 256));
 
-
-$schema = new \Doctrine\DBAL\Schema\Schema();
+$usersTable->setPrimaryKey(array("id"));
 
 // TODO Place in own class
 //Person Table

@@ -1,16 +1,16 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Harry van der Valk - The Hague Intelligence Group
- * Date: 21-12-15
- * Time: 14:22
+ * User: Hiltje
+ * Date: 23-12-15
+ * Time: 17:57
  */
 
 namespace Frissr\Volunteer\Command\Migration;
 
 use Doctrine\DBAL\Connection;
 
-class migrateTable0002 {
+class migrateTable0003 {
 
     /**
      * @var \Doctrine\DBAL\Connection
@@ -26,16 +26,15 @@ class migrateTable0002 {
     }
 
     public function getTitle() {
-        return 'Create Match Table';
+        return 'Create Event Table';
     }
 
-    private function getSQL() {
-        return 'CREATE TABLE Matches (
-            id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
-            refugee int,
-            volunteer int,
-            active boolean,
-            updated datetime
+    private function getSQl(){
+        return 'CREATE TABLE Event(
+            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            name VARCHAR(128) NOT NULL ,
+            organiser VARCHAR(128) NOT NULL ,
+            location VARCHAR(128) NOT NULL , PRIMARY KEY (`id`)
         );';
     }
-} 
+}

@@ -8,7 +8,7 @@
 
 namespace Frissr\Volunteer\Command;
 
-class migrateDatabaseCommand {
+class migrateDatabaseCommand extends BaseCommand {
 
     public function execute() {
 

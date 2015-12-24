@@ -8,7 +8,7 @@
 
 namespace Frissr\Volunteer\Command;
 
-class loadDatabaseFixturesCommand {
+class loadDatabaseFixturesCommand extends BaseCommand {
 
 
 } 
