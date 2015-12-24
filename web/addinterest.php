@@ -13,13 +13,21 @@ $conn=$container->get('db');
 $testTable= "CREATE TABLE Interests
 (
     id INT,
-    naam VARCHART(55),
-    category VARCHART(55),
-    decsription TEXT(1000)
+    naam VARCHAR(55),
+    category VARCHAR(55),
+    description TEXT(1000)
 
 
- )";
+ );
 
-$conn->query($testTable);
+ ";
 
-echo "Table Created";
+$testInsert = "
+INSERT INTO Interests
+VALUES (1,'Dog Test','null','null');";
+
+//$conn->query($testTable);
+
+$selectStatement = "SELECT naam from interests;";
+$conn->query($testInsert);
+

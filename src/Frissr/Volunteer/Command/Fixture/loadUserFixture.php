@@ -27,10 +27,10 @@ class loadUserFixture {
 
     public function execute() {
         // TODO Controleer of de gebruikers reeds bestaan
-        $queries[] = "INSERT INTO `frissr`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'admin', 'admin@frissr.nl', '1', '0');";
-        $queries[] = "INSERT INTO `frissr`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'harry', 'harry@frissr.nl', '1', '0');";
-        $queries[] = "INSERT INTO `frissr`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'mike', 'mike@frissr.nl', '1', '1');";
-        $queries[] = "INSERT INTO `frissr`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'sandra', 'sandra@frissr.nl', '1', '0');";
+        $queries[] = "INSERT INTO `frissr_demo`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'admin', 'admin@frissr.nl', '1', '0');";
+        $queries[] = "INSERT INTO `frissr_demo`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'harry', 'harry@frissr.nl', '1', '0');";
+        $queries[] = "INSERT INTO `frissr_demo`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'mike', 'mike@frissr.nl', '1', '1');";
+        $queries[] = "INSERT INTO `frissr_demo`.`users` (`id`, `name`, `email`, `active`, `locked`) VALUES (NULL, 'sandra', 'sandra@frissr.nl', '1', '0');";
 
         foreach ($queries as $query)
         {

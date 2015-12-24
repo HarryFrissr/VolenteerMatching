@@ -11,18 +11,20 @@ namespace Frissr\Volunteer\Controller;
 use Frissr\Volunteer\Command\Migration\migrateTable0001;
 use Frissr\Volunteer\Command\Migration\migrateTable0002;
 use Frissr\Volunteer\Command\Migration\migrateTable0003;
+use Frissr\Volunteer\Command\Migration\migrateTable122320151845;
 use Exception;
 
 class migrateDatabaseController extends Controller {
 
     public function indexAction() {
-        return '<h2>acties</h2><a href="app.php?migrateDatabase/start">Start Migrate</a>';
+        return '<h2>acties</h2><a href="?migrateDatabase/start">Start Migrate</a>';
     }
 
     public function getMigrations(){
         $migrations[] = new migrateTable0001($this->get('db'));
         $migrations[] = new migrateTable0002($this->get('db'));
         $migrations[] = new migrateTable0003($this->get('db'));
+        $migrations[] = new migrateTable122320151845($this->get('db'));
 
         return $migrations;
     }
