@@ -12,6 +12,7 @@ use Faker\Factory;
 use Symfony\Component\Templating\PhpEngine;
 use Symfony\Component\Templating\TemplateNameParser;
 use Symfony\Component\Templating\Loader\FilesystemLoader;
+use Symfony\Component\Templating\Helper\SlotsHelper;
 
 /**
  * A container is just the place to put object instances. You can call the instances - services - from the container by
@@ -22,6 +23,19 @@ use Symfony\Component\Templating\Loader\FilesystemLoader;
  *   echo $foo;
  */
 
+/**
+ * De algemene Container. Zet hierin je services
+ */
+const VERSION = '0.8.0';
+const TITLE   = 'Volunteer Matching';
+const FOO = 'Foo';
+
+$container = new ContainerBuilder();
+$container->setParameter('version', VERSION);
+$container->setParameter('title', TITLE);
+$container->setParameter('foo', FOO);
+$container->setParameter('env', 'prod');
+
 $config = new \Doctrine\DBAL\Configuration();
 $connectionParams = array(
     'dbname' => 'frissr_demo',
@@ -31,27 +45,41 @@ $connectionParams = array(
     'port' => 3306,
     'charset' => 'utf8',
     'driver' => 'pdo_mysql',
+
+    // When using sqlite
+    // 'url' => 'sqlite://db.sqlite'
 );
 $db = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
+$container->set('db', $db);
 
-$container = new ContainerBuilder();
-
-$loader = new FilesystemLoader(__DIR__.'/../views/%name%');
 
 $session = new Symfony\Component\HttpFoundation\Session\Session();
 $session->start();
 
+// Templating
+$loader = new FilesystemLoader(__DIR__.'/../views/%name%');
 $templating = new PhpEngine(new TemplateNameParser(), $loader);
-
-$faker = Factory::create();
-
+$templating->set(new SlotsHelper());
 $container->set('templating', $templating);
 
 // Zet een service - bij instantie
 
-$container->set('faker', $faker);
+$container->set('faker', Factory::create());
 $container->set('session' , $session);
-$container->set('db',$db);
+
+
+// Registeer een service - bij naam
+$container->register('foo', 'Frissr\Volunteer\Entity\Foo');
+$container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeService($container->get('faker')));
+
+$container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
+$container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
+
+$container->register('translation_service', 'Frissr\Volunteer\Service\TranslationService');
+
+
+$container->set('register', new Frissr\Volunteer\Service\RegisterAccountService($container->get('db')));
+
 
 $schema = new Doctrine\DBAL\Schema\Schema();
 $usersTable = $schema->createTable("Users");
@@ -63,38 +91,6 @@ $usersTable->addColumn("email", "string", array("length" => 256));
 $usersTable->addColumn("website", "string", array("length" => 256));
 
 $usersTable->setPrimaryKey(array("id"));
-
-
-// Registeer een service - bij naam
-$container->register('foo', 'Frissr\Volunteer\Entity\Foo');
-$container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeService($faker));
-
-$container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
-$container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
-
-
-// DBAL service
-
-//use Doctrine\Common\ClassLoader;
-//require '../vendor/doctrine/common/lib/Doctrine/Common';
-//$classloader = new ClassLoader('Doctrine', './Doctrine/doctrine-dbal');
-//$classloader->register();
-
-$config = new \Doctrine\DBAL\Configuration();
-//..
-$connectionParams = array(
-    'dbname' => 'frissr_demo',
-    'user' => 'root',
-    'password' => '',
-    'host' => 'localhost:3306',
-    'driver' => 'pdo_mysql',
-);
-
-
-$conn = \Doctrine\DBAL\DriverManager::getConnection($connectionParams, $config);
-$container->set('db', $conn);
-
-$schema = new \Doctrine\DBAL\Schema\Schema();
 
 // TODO Place in own class
 //Person Table
@@ -148,3 +144,4 @@ $personTable->addColumn("password", "date", array("length" => 8));
 
 //    $platform = $conn->getDatabasePlatform();
 //    $queries = $schema->toSql($platform);
+

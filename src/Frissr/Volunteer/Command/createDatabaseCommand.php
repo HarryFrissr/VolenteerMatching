@@ -15,7 +15,7 @@
 
 namespace Frissr\Volunteer\Command;
 
-class createDatabase {
+class createDatabase extends BaseCommand {
 
     public function __construct() {
 

@@ -16,9 +16,9 @@ class Foo extends BaseMigrationTable
     }
 
     protected function getSQL() {
-        return 'CREATE TABLE Foo (' .
-        'title varchar(255),' .
-        'location varchar(255)' .
-        ');';
+        return 'CREATE TABLE Foo (
+            title varchar(255),
+            location varchar(255)
+        );';
     }
 }

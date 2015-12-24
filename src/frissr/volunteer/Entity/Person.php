@@ -54,8 +54,10 @@ class Person {
         $this->lastName = $lastname;
     }
 
-    //  return available name, this is the firstname appended to the lastname if available, otherwise it returns the
-    // "name" variable
+    /**
+    *  return available name, this is the firstname appended to the lastname if available, otherwise it returns the
+    *  "name" variable
+    **/
     public function getName() {
         if (isset($this->firstName) && isset($this->lastName)) {
             return trim($this->firstName . ' ' . $this->lastName);
@@ -135,9 +137,18 @@ class Person {
         return $this->email;
     }
 
+    public function getProfilePicture() {
+        return null;
+    }
+
     /**
      * @param null $email
      */
+    public function setProfilePicture($profilePicture)
+    {
+        $this->profilePicture = $profilePicture;
+    }
+
     public function setEmail($email)
     {
         $this->email = $email;

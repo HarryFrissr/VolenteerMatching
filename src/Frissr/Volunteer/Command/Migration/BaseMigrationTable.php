@@ -7,6 +7,7 @@
  */
 
 namespace Frissr\Volunteer\Command\Migration;
+
 use Doctrine\DBAL\Connection;
 use Exception;
 

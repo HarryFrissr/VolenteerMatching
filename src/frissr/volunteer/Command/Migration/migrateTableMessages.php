@@ -10,26 +10,14 @@ namespace Frissr\Volunteer\Command\Migration;
 
 use Doctrine\DBAL\Connection;
 
-class migrateTableMessages {
-
-    /**
-     * @var \Doctrine\DBAL\Connection
-     */
-    private $conn;
-
-    public function __construct(Connection $conn ) {
-        $this->conn = $conn;
-    }
-
-    public function execute() {
-        $this->conn->query($this->getSQL());
-    }
+class migrateTableMessages extends BaseMigrationTable {
 
     public function getTitle() {
         return 'Create Match Table';
     }
 
-    private function getSQL() {
+    // TODO Hier worden drie SQL statements in één methode terug gegeven. Kijk of je het in een array kan terug geven?
+    protected function getSQL() {
         return '  CREATE TABLE `messages` (
                   `id` int(11) NOT NULL,
                   `sender` int(11) NOT NULL,

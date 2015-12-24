@@ -9,15 +9,19 @@
 namespace Frissr\Volunteer\Controller;
 
 use Frissr\Volunteer\Command\Fixture\loadUserFixture;
-
+use Frissr\Volunteer\Command\Fixture\loadEventFixture;
+use Frissr\Volunteer\Command\Fixture\loadPersonFixture;
 class FixturesController extends Controller {
 
     public function indexAction() {
-        return '<a href="app.php?fixtures/start">Load Fixtures</a>';
+        return '<a href="?fixtures/start">Load Fixtures</a>';
     }
 
     public function startAction() {
+        // TODO Load all fixtures from the folder - http://php.net/manual/en/function.scandir.php
         $fixtures[] = new loadUserFixture($this->get('db'));
+        $fixtures[] = new loadPersonFixture($this->get('db'));
+        $fixtures[] = new loadEventFixture($this->get('db'));
 
         echo 'Load fixtures: <br>';
         foreach ($fixtures as $fixture) {

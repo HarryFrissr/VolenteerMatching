@@ -2,15 +2,13 @@
 /**
  * Created by PhpStorm.
  * User: Harry van der Valk - The Hague Intelligence Group
- * Date: 21-12-15
- * Time: 11:27
+ * Date: 24-12-15
+ * Time: 12:09
  */
 
 namespace Frissr\Volunteer\Command;
 
-class migrateDatabaseCommand {
 
-    public function execute() {
+class dropDatabaseCommand {
 
-    }
 } 

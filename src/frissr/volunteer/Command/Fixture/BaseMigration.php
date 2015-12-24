@@ -2,26 +2,25 @@
 /**
  * Created by PhpStorm.
  * User: Harry van der Valk - The Hague Intelligence Group
- * Date: 21-12-15
- * Time: 14:39
+ * Date: 24-12-15
+ * Time: 12:00
  */
 
-namespace Frissr\Volunteer\Command;
+namespace Frissr\Volunteer\Command\Fixture;
 
 use Doctrine\DBAL\Connection;
 
-class clearDatabaseCommand {
+abstract class BaseMigration {
     /**
      * @var \Doctrine\DBAL\Connection
      */
-    private $conn;
+    protected $conn;
 
     public function __construct(Connection $conn ) {
         $this->conn = $conn;
     }
 
-    public function execute() {
-        $this->conn->query('delete from matches');
-        $this->conn->query('delete from users where id > 1');
-    }
-} 
+    abstract public function getTitle();
+
+    abstract public function execute();
+}

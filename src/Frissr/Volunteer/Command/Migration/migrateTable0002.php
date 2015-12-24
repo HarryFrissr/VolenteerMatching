@@ -15,12 +15,12 @@ class migrateTable0002 extends BaseMigrationTable {
     }
 
     protected function getSQL() {
-        return 'CREATE TABLE Matches (' .
-            'id int NOT NULL AUTO_INCREMENT PRIMARY KEY,' .
-            'refugee int,' .
-            'volunteer int,' .
-            'active boolean,' .
-            'updated datetime' .
-        ');';
+        return 'CREATE TABLE Matches (
+            id int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            refugee int,
+            volunteer int,
+            active boolean,
+            updated datetime
+        );';
     }
 } 

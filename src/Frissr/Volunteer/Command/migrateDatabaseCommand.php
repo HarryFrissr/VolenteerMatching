@@ -8,7 +8,9 @@
 
 namespace Frissr\Volunteer\Command;
 
-class loadDatabaseFixturesCommand {
+class migrateDatabaseCommand extends BaseCommand {
 
+    public function execute() {
 
+    }
 } 

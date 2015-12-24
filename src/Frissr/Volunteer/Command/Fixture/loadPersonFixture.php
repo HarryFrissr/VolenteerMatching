@@ -8,20 +8,8 @@
 
 namespace Frissr\Volunteer\Command\Fixture;
 
-use Doctrine\DBAL\Connection;
-class loadPersonFixture
+class loadPersonFixture extends BaseMigration
 {
-
-    /**
-     * @var \Doctrine\DBAL\Connection
-     */
-    private $conn;
-
-    public function __construct(Connection $conn)
-    {
-        $this->conn = $conn;
-    }
-
     public function getTitle()
     {
         return 'Load Persons';
@@ -29,11 +17,10 @@ class loadPersonFixture
 
     public function execute()
     {
-
-        $queries[] = "INSERT INTO `frissr`.`Person` (`id`, `firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES (NULL, 'admin', 'admin', '1975-04-02','admin@frissr.nl','wachtwoord', '1', '0');";
-        $queries[] = "INSERT INTO `frissr`.`Person` (`id`, `firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES (NULL, 'harry', 'valk', '1983-11-09','harry@frissr.nl', 'wachtwoord', '1', '0');";
-        $queries[] = "INSERT INTO `frissr`.`Person` (`id`, `firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES (NULL, 'mike', 'lepel','1945-7-29','mike@frissr.nl', 'wachtwoord', '1', '1');";
-        $queries[] = "INSERT INTO `frissr`.`Person` (`id`, `firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES (NULL, 'sandra','huis','1967-06-22','sandra@frissr.nl', 'wachtwoord', '1', '0');";
+        $queries[] = "INSERT INTO `Person` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES ('admin', 'admin', '1975-04-02','admin@frissr.nl','wachtwoord', '1', '0');";
+        $queries[] = "INSERT INTO `Person` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES ('harry', 'valk', '1983-11-09','harry@frissr.nl', 'wachtwoord', '1', '0');";
+        $queries[] = "INSERT INTO `Person` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES ('mike', 'lepel','1945-7-29','mike@frissr.nl', 'wachtwoord', '1', '1');";
+        $queries[] = "INSERT INTO `Person` (`firstName`, `lastName`, `dateOfBirth`, `email`, `password`, `active`, `locked`) VALUES ('sandra','huis','1967-06-22','sandra@frissr.nl', 'wachtwoord', '1', '0');";
 
         foreach ($queries as $query) {
             echo "Execute: $query <br>";

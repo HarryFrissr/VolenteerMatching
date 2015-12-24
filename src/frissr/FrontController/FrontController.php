@@ -19,8 +19,7 @@ class FrontController implements FrontControllerInterface
     protected $controller    = self::DEFAULT_CONTROLLER;
     protected $action        = self::DEFAULT_ACTION;
     protected $params        = array();
-    protected $basePath      = "src/";
-    
+
     public function __construct(ContainerBuilder $container) {
         $this->container = $container;
         $this->parseUri();
@@ -50,7 +49,7 @@ class FrontController implements FrontControllerInterface
         // TODO Remove hard-code namespace
         $controller = 'Frissr\\Volunteer\\Controller\\' . ucfirst($controller);
         if (!class_exists($controller)) {
-            // TODO Geef een nettere foutmelding
+            // TODO Geef een nettere foutmelding - of van af in de front end
             throw new InvalidArgumentException(
                 "The action controller '$controller' has not been defined.");
         }

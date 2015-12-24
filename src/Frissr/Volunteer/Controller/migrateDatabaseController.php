@@ -10,24 +10,19 @@ namespace Frissr\Volunteer\Controller;
 
 use Frissr\Volunteer\Command\Migration\migrateTable0001;
 use Frissr\Volunteer\Command\Migration\migrateTable0002;
-use Frissr\Volunteer\Command\Migration\migrateTableEvent;
-use Frissr\Volunteer\Command\Migration\migrateTableMessages;
-use Frissr\Volunteer\Command\Migration\migrateTablePerson;
+use Frissr\Volunteer\Command\Migration\migrateTable0003;
 use Exception;
 
 class migrateDatabaseController extends Controller {
 
     public function indexAction() {
-        return '<h2>acties</h2><a href="?migrateDatabase/start">Start Migrate</a>';
+        return '<h2>acties</h2><a href="app.php?migrateDatabase/start">Start Migrate</a>';
     }
 
     public function getMigrations(){
-        // TODO Load all migration from the folder - http://php.net/manual/en/function.scandir.php
         $migrations[] = new migrateTable0001($this->get('db'));
         $migrations[] = new migrateTable0002($this->get('db'));
-        $migrations[] = new migrateTableEvent($this->get('db'));
-        $migrations[] = new migrateTableMessages($this->get('db'));
-        $migrations[] = new migrateTablePerson($this->get('db'));
+        $migrations[] = new migrateTable0003($this->get('db'));
 
         return $migrations;
     }

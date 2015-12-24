@@ -19,15 +19,16 @@ class migrateTableEvent extends BaseMigrationTable
      * @return string
      */
     protected function getSQL() {
-        return 'CREATE TABLE Event (' .
-        'title varchar(255),' .
-        'description varchar(255),' .
-        'date date,' .
-        'time time,' .
-        'maxNumberOfParticipants int(3),' .
-        'numberOfParticipants int(4),' .
-        'organiser varchar(255),' .
-        'location varchar(255)' .
-        ');';
+        return 'CREATE TABLE Event (
+            id INT(11) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+            title varchar(255),
+            description varchar(255),
+            date date,
+            time time,
+            maxNumberOfParticipants int(3),
+            numberOfParticipants int(4),
+            organiser varchar(255),
+            location varchar(255)
+        );';
     }
 }
