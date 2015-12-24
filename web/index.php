@@ -15,13 +15,6 @@ ini_set('display_errors', 1);
 require_once ('../vendor/autoload.php');
 require_once ('../app/config/services.php');
 
-use Frissr\Volunteer\Service\TranslationService;
-
-$ww = new TranslationService('en');
-echo $ww->getTranslation('We');
-echo $ww->getTranslation('Appel');
-
-die;
 // TODO - Maak een default layout aan
 require_once __DIR__ . './../vendor' . '/autoload.php';
 echo "Welkom op de Matching website voor Vluchtelingen en Vrijwilligers in Nederland";
