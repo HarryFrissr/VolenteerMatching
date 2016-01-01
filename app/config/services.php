@@ -71,7 +71,7 @@ $container->set('session' , $session);
 // Registeer een service - bij naam
 $container->register('foo', 'Frissr\Volunteer\Entity\Foo');
 $container->set('fixed_refugee_list', new Frissr\Volunteer\Service\FixedRefugeeService($container->get('faker')));
-
+$container->register('register_interest_service', new Frissr\Volunteer\Service\InterestManagerService($container->get('db')));
 $container->register('message_service', 'Frissr\Volunteer\Service\MessageService');
 $container->register('send_message_service', 'Frissr\Volunteer\Service\SendMessageService');
 

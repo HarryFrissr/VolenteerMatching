@@ -9,7 +9,7 @@
 namespace Frissr\Volunteer\Service;
 
 
-class InterestManager
+class InterestManagerService
 {
     protected $conn;
     public function __construct($conn){
@@ -21,7 +21,7 @@ class InterestManager
         return $this->conn->query($sql);
     }
 
-    public function addInterest(){
-
+    public function addInterest($name, $category, $description){
+        $sql="INSERT INTO Interests VALUES($name, $category, $description);";
     }
 }
