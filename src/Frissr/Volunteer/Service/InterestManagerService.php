@@ -13,7 +13,7 @@ class InterestManagerService
 {
     protected $conn;
     public function __construct($conn){
-        $this->conn=$conn;
+        $this->conn = $conn;
     }
 
     public function findInterestByName(string $name){
@@ -22,6 +22,7 @@ class InterestManagerService
     }
 
     public function addInterest($name, $category, $description){
-        $sql="INSERT INTO Interests VALUES($name, $category, $description);";
+        $sql="INSERT INTO Interests VALUES(null,'$name','$category','$description');";
+        return $this->conn->query($sql);
     }
 }
