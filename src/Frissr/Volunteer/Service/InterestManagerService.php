@@ -16,8 +16,8 @@ class InterestManagerService
         $this->conn = $conn;
     }
 
-    public function findInterestByName(string $name){
-        $sql="SELECT * FROM Interest WHERE name='".$name."';";
+    public function findInterestByName($name){
+        $sql="SELECT * FROM Interests WHERE name='$name';";
         return $this->conn->query($sql);
     }
 

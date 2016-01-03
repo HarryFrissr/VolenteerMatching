@@ -9,6 +9,7 @@
 
     <!-- Bootstrap -->
     <link href="/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -23,9 +24,10 @@
 <?php echo $view->render('index/_prenav.html.php') ?>
 
 <div class="jumbotron">
-    <h1>Hello, Volunteer Matchers!</h1>
-    <p>...</p>
-    <p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+    <div class="page-title">
+        <h1><?php echo $page?></h1>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a>
+    </div>
 </div>
 
 <div id="content">
