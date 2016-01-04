@@ -14,6 +14,13 @@ ini_set('display_errors', 1);
 
 require_once ('../vendor/autoload.php');
 require_once ('../app/config/services.php');
+// ik weet niet of dit klopt
+//function __autoload($class)
+//{
+//    $parts = explode('\\', $class);
+//    require end($parts) . '.php';
+//}
+
 
 // TODO - Maak een default layout aan
 require_once __DIR__ . './../vendor' . '/autoload.php';

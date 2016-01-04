@@ -46,8 +46,7 @@ class FrontController implements FrontControllerInterface
     }
     
     public function setController($controller) {
-        // TODO Remove hard-code namespace
-        $controller = 'Frissr\\Volunteer\\Controller\\' . ucfirst($controller);
+        $controller = ucfirst(strtolower($controller)) . "Controller";
         if (!class_exists($controller)) {
             // TODO Geef een nettere foutmelding - of van af in de front end
             throw new InvalidArgumentException(

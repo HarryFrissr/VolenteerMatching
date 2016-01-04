@@ -136,9 +136,9 @@ $personTable->addColumn("password", "date", array("length" => 8));
     $locationTable->addColumn("zip code", "string", array("length" => 10));
 
 // TODO Place in own class
-// TODO Do not use the & in naming
+
 //Refugee/Volunteer Table
-    $refugee_volunteerTable = $schema->createTable("refugee&volunteerTable");
+    $refugee_volunteerTable = $schema->createTable("refugeeVolunteerTable");
     $refugee_volunteerTable->addColumn("refugee", "boolean");
     $refugee_volunteerTable->addColumn("volunteer", "boolean");
 
