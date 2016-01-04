@@ -6,8 +6,9 @@
  * Time: 10:55
  */
 
-//Weer die autoload, vind een oplossing om deze alleen in bijvoorbeeld de index.php aan te roepen
+//TODO Weer die autoload, vind een oplossing om deze alleen in bijvoorbeeld de index.php aan te roepen
 require_once __DIR__ . './../vendor' . '/autoload.php';
+
 
 use Frissr\Volunteer\Controller\LoginController;
 
@@ -17,12 +18,14 @@ $forgotpassword = $_POST['check'];
 
 $controller = new LoginController;
 
-// TODO need to check if checkbox is checked (forgot password)
-// if checked:
-$controller->forgotPassword();
-// TODO: need to check if password and name field are not empty
-// elseif not empty then:
-$controller-> handleLoginAction();
-// else (if empty):
-$controller->loginAction();
 
+if (isset($_POST['check'])) {
+    $controller->forgotPassword();
+}
+
+if (isset($_POST['person_name'])and (isset($_POST['person_password']))) {
+    $controller-> handleLoginAction();
+}
+else {
+    $controller->loginAction();
+}
